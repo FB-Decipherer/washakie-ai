@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Page E · standing up a domain · Three Columns</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FCFAF5;--card:#F5F1E8;--ink:#1E1B16;--ink-mid:#4A443A;--rule:#DCD5C6;
+  --accent:#4C7A4E;--accentb:#B4372C;--gold:#C8992F;--done:#7FA981;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;font-size:16.5px;line-height:1.62;}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px 80px;}
+header{padding:34px 0 20px;border-bottom:2px solid var(--ink);}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accentb);}
+h1{font-size:36px;margin:8px 0 0;font-weight:600;letter-spacing:-.012em;}
+.sub{color:var(--ink-mid);margin-top:10px;}
+h2{font-size:21px;margin:40px 0 2px;font-weight:600;display:flex;gap:.6em;align-items:baseline;}
+h2 .n{font-family:"IBM Plex Mono",monospace;color:var(--gold);font-size:.72em;flex:none;}
+h3{font-size:15px;font-family:"IBM Plex Mono",monospace;color:var(--accent);
+  margin:22px 0 2px;letter-spacing:.02em;}
+p{margin:9px 0 0;} p.hint{color:var(--ink-mid);font-size:15px;margin-top:4px;}
+label.f{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-mid);margin:14px 0 4px;}
+input.f{width:100%;font-family:"IBM Plex Mono",monospace;font-size:15px;padding:9px 11px;
+  border:1px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink);}
+.setup{background:var(--card);border:1px solid var(--rule);border-radius:10px;
+  padding:16px 18px 20px;margin-top:18px;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;}
+ol.steps{list-style:none;padding:0;margin:12px 0 0;counter-reset:s;}
+ol.steps>li{position:relative;padding:11px 0 11px 40px;border-top:1px solid var(--rule);counter-increment:s;}
+ol.steps>li:last-child{border-bottom:1px solid var(--rule);}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:12px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-mid);
+  width:26px;height:26px;line-height:26px;text-align:center;
+  border:1px solid var(--rule);border-radius:50%;background:var(--paper);}
+ol.steps>li.on::before{content:"✓";color:#fff;background:var(--done);border-color:var(--done);}
+ol.steps>li .tick{position:absolute;left:0;top:12px;width:26px;height:26px;
+  opacity:0;cursor:pointer;margin:0;}
+ol.steps>li.on{opacity:.55;}
+val{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.9em;
+  background:var(--card);border:1px solid var(--rule);border-radius:5px;
+  padding:1px 7px;cursor:pointer;}
+val:hover{border-color:var(--accent);}
+val::after{content:" ⧉";opacity:.4;font-size:.85em;}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14.5px;}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top;}
+th{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-mid);border-bottom:2px solid var(--ink);}
+td.m{font-family:"IBM Plex Mono",monospace;font-size:13px;}
+pre{font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.5;background:var(--card);
+  border:1px solid var(--rule);border-radius:7px;padding:13px 15px;overflow-x:auto;margin-top:10px;}
+.warn{border-left:3px solid var(--accentb);background:var(--card);padding:14px 16px;
+  border-radius:0 8px 8px 0;margin-top:16px;}
+.ok{border-left:3px solid var(--accent);background:var(--card);padding:14px 16px;
+  border-radius:0 8px 8px 0;margin-top:16px;}
+.wait{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accentb);
+  letter-spacing:.05em;text-transform:uppercase;margin-top:10px;}
+a{color:inherit;border-bottom:1px solid var(--rule);text-decoration:none;}
+a:hover{border-bottom-color:var(--accent);}
+.err{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accentb);}
+button.rst{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:none;
+  border:1px solid var(--rule);color:var(--ink-mid);padding:7px 13px;border-radius:6px;
+  cursor:pointer;margin-top:20px;}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-mid);}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Page E · for you only · not linked, not indexed</div>
+  <h1>Standing up a domain</h1>
+  <p class="sub">Every step, in order, with your own values filled in. Tick things off as you go — this page remembers your ticks in this browser, which is the one place in the whole project that stores anything. Do exactly what is here and nothing else; the optional-looking extras on these sites are where the afternoon goes.</p>
+</header>
+
+<div class="ok" id="SUPERSEDED-BANNER" style="border-left-color:#4C7A4E;margin-bottom:6px">
+  <b>You no longer have to do this by hand.</b> <val>2 - NEW SITE.command</val> in
+  <val>three-columns-tools</val> performs every step below automatically: it creates the
+  repository, pushes the files, turns on Pages, sets the custom domain, writes the nine DNS
+  records at Cloudflare, waits for propagation, waits for the certificate and turns on HTTPS.
+  <br><br>
+  This page is kept for three reasons: it is the record of <em>what</em> the script does, so
+  nothing about the arrangement is hidden; it is the fallback when the script cannot run or
+  the registrar has no API; and section <b>E7</b> — what the failure messages actually mean —
+  applies either way. Work through it by hand only if you have reason to.
+</div>
+
+<div class="setup">
+  <div class="row">
+    <div><label class="f">The domain you are setting up</label>
+      <input class="f" id="dom" value="threecolumns.online"></div>
+    <div><label class="f">GitHub username or org</label>
+      <input class="f" id="usr" value="FB-Decipherer"></div>
+  </div>
+  <label class="f">New repository name</label>
+  <input class="f" id="repo" value="threecolumns">
+  <p class="hint">Everything below rewrites itself from these three. Click any boxed value to copy it.</p>
+</div>
+
+<div class="warn"><b>Read this before you touch anything.</b> A repository publishes to <em>one</em> custom domain — the domain lives in a file called <val>CNAME</val> in the repository root, and that file holds one name. <b>baconian-ciphers</b> already carries baconian-ciphers.online, so <span id="d1"></span> needs its own new repository. That is what step 2 is. Trying to add a second domain to the existing repository is the one mistake that will cost you a whole afternoon.</div>
+
+<h2><span class="n">E1</span>Buy the domain</h2>
+<p class="hint">Namecheap, as before. Ten minutes, and the only money involved.</p>
+<ol class="steps">
+  <li><input type="checkbox" class="tick">Search for <span id="d2"></span> and buy it. Decline every upsell — you do not need their hosting, their email, their SSL, or their "premium DNS." You are using none of it.</li>
+  <li><input type="checkbox" class="tick"><b>Leave WhoisGuard / Domain Privacy ON.</b> It is free and it keeps your home address out of the public registry.</li>
+  <li><input type="checkbox" class="tick">Turn on <b>two-factor authentication</b> on the Namecheap account if it is not on already. Your registrar account is one of only two things anyone can actually steal from you.</li>
+  <li><input type="checkbox" class="tick">In the domain's dashboard, confirm <b>Nameservers</b> is set to <val>Namecheap BasicDNS</val>. If it says anything else, change it to that — the records in step 3 only work if Namecheap is answering for the domain.</li>
+</ol>
+
+<h2><span class="n">E2</span>Make the repository</h2>
+<ol class="steps">
+  <li><input type="checkbox" class="tick">On github.com: <b>New repository</b>. Name it <span id="r1"></span>. Tick <b>Public</b>. Do not add a README, a licence, or a .gitignore — an empty repository is easier.</li>
+  <li><input type="checkbox" class="tick">Open <b>GitHub Desktop</b> → <b>File</b> → <b>Clone repository</b> → pick <span id="r2"></span> → choose where it sits on your machine.</li>
+  <li><input type="checkbox" class="tick">Copy <val>index.html</val>, <val>setup.html</val>, <val>domain.html</val> and <val>links.json</val> into that folder.</li>
+  <li><input type="checkbox" class="tick">In GitHub Desktop: type a Summary line, <b>Commit to main</b>, then <b>Push origin</b>.</li>
+  <li><input type="checkbox" class="tick">On github.com, in the new repository: <b>Settings</b> → <b>Pages</b>. Source: <b>Deploy from a branch</b>, branch <val>main</val>, folder <val>/ (root)</val>. Save.</li>
+  <li><input type="checkbox" class="tick">Wait a minute, then check the plain address works before you involve the domain at all: <span id="ghp"></span></li>
+</ol>
+<div class="ok"><b>Stop here until that address loads.</b> If it does not, the problem is the repository or the Pages setting, and it has nothing to do with DNS. Fixing it now saves you from debugging two things at once.</div>
+
+<h2><span class="n">E3</span>The DNS records</h2>
+<p class="hint">Namecheap → <b>Domain List</b> → <b>Manage</b> → <b>Advanced DNS</b> → <b>Host Records</b>. Delete whatever parking records are already there — usually a CNAME on <val>www</val> and a URL Redirect on <val>@</val>. Then add these ten. Verified against GitHub's own documentation, 10 September 2026.</p>
+<table>
+  <tr><th>Type</th><th>Host</th><th>Value</th><th>TTL</th></tr>
+  <tr><td class="m">A</td><td class="m">@</td><td class="m"><val>185.199.108.153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">A</td><td class="m">@</td><td class="m"><val>185.199.109.153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">A</td><td class="m">@</td><td class="m"><val>185.199.110.153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">A</td><td class="m">@</td><td class="m"><val>185.199.111.153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">AAAA</td><td class="m">@</td><td class="m"><val>2606:50c0:8000::153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">AAAA</td><td class="m">@</td><td class="m"><val>2606:50c0:8001::153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">AAAA</td><td class="m">@</td><td class="m"><val>2606:50c0:8002::153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">AAAA</td><td class="m">@</td><td class="m"><val>2606:50c0:8003::153</val></td><td class="m">Automatic</td></tr>
+  <tr><td class="m">CNAME</td><td class="m">www</td><td class="m"><span id="cn"></span></td><td class="m">Automatic</td></tr>
+</table>
+<div class="warn"><b>The CNAME value ends in a dot.</b> <span id="cn2"></span> — trailing dot included. Namecheap will usually add it for you, but check afterwards; a missing dot is the commonest silent failure here. Note also it is your <em>username</em>, not the repository name.</div>
+<p>The four AAAA records are new since we last did this and are worth adding — they serve visitors on IPv6 connections, which is most phones on mobile data.</p>
+<div class="wait">then wait — usually 10 to 30 minutes, occasionally much longer</div>
+<ol class="steps">
+  <li><input type="checkbox" class="tick">Records entered and saved.</li>
+  <li><input type="checkbox" class="tick">Check they have spread before going further: <a href="https://dnschecker.org/" target="_blank" rel="noopener">dnschecker.org</a> → enter <span id="d3"></span> → type <b>A</b>. You want the four addresses showing green in most locations.</li>
+</ol>
+
+<h2><span class="n">E4</span>Attach the domain to the site</h2>
+<div class="warn"><b>Correcting our own notes.</b> The old instruction said always set DNS first or GitHub shows a red warning. GitHub's own documentation actually asks you to enter the domain in Settings first and then create the records. Both work. Doing DNS first, as above, simply means you are less likely to meet the red warning at all — and if you do meet it, it is not an error, it is impatience.</div>
+<ol class="steps">
+  <li><input type="checkbox" class="tick">In the new repository: <b>Settings</b> → <b>Pages</b> → <b>Custom domain</b>. Enter <span id="d4"></span> — no <val>www</val>, no <val>https://</val>. Save.</li>
+  <li><input type="checkbox" class="tick">GitHub writes a <val>CNAME</val> file into the repository itself. You do not create it by hand. In GitHub Desktop, <b>Fetch origin</b> so your local folder picks it up, or your next push will conflict.</li>
+  <li><input type="checkbox" class="tick">Watch for the green tick beside the domain. If you see <span class="err">DNS check unsuccessful</span>, press <b>Check again</b> every few minutes. It clears itself once the records have propagated.</li>
+</ol>
+
+<h2><span class="n">E5</span>The padlock</h2>
+<ol class="steps">
+  <li><input type="checkbox" class="tick">Leave it alone. A certificate is requested automatically once the DNS check passes.</li>
+  <li><input type="checkbox" class="tick">When <b>Enforce HTTPS</b> becomes tickable, tick it.</li>
+</ol>
+<div class="wait">often 15 minutes — GitHub documents it as up to 24 hours</div>
+<p class="hint">Our old note said "a few minutes," which is usually true and occasionally very wrong. If the box is greyed out with a message about the certificate still being provisioned, that is normal and there is nothing to do. Come back tomorrow before assuming anything is broken.</p>
+
+<h2><span class="n">E6</span>Check it, then stop</h2>
+<ol class="steps">
+  <li><input type="checkbox" class="tick"><span id="chk1"></span> loads.</li>
+  <li><input type="checkbox" class="tick"><span id="chk2"></span> loads and redirects to the bare domain.</li>
+  <li><input type="checkbox" class="tick">The padlock is showing and the address stays on <val>https</val>.</li>
+  <li><input type="checkbox" class="tick">It looks right on the phone.</li>
+</ol>
+<div class="ok"><b>Then you are finished, and you never do this again for this domain.</b> From here publishing is: edit the file, Commit, Push. The certificate renews itself. The DNS stays as it is. Nothing expires except the domain, once a year, and Namecheap will email you.</div>
+
+<h2><span class="n">E7</span>When it looks broken</h2>
+<p class="hint">Almost always one of these five, and almost always waiting rather than fixing.</p>
+<h3>"DNS check unsuccessful"</h3>
+<p>Not an error. The records have not spread yet. Press <b>Check again</b> in a few minutes. If it is still saying it after a couple of hours, the records are wrong — go back to E3 and check the trailing dot on the CNAME and that Nameservers really is BasicDNS.</p>
+<h3>A 404 from GitHub on the new domain</h3>
+<p>DNS is working and Pages is not. Check <b>Settings → Pages</b> still shows the branch and root folder, and that <val>index.html</val> is at the top of the repository rather than inside a subfolder.</p>
+<h3>The old site appears, or a Namecheap parking page</h3>
+<p>Cached, or a leftover record. Delete any URL Redirect record on <val>@</val>, then try in a private window.</p>
+<h3>You changed a file and the page has not changed</h3>
+<p>Ten-minute cache. Add <val>?v=1</val> to the address, then <val>?v=2</val>, and so on. Do not start editing to fix a problem that is only a cache.</p>
+<h3>"Enforce HTTPS" is greyed out</h3>
+<p>The certificate has not been issued yet. Nothing to do but wait, up to a day.</p>
+<div class="warn"><b>The rule for this whole page.</b> If something is not working, wait fifteen minutes before changing anything. Nearly every wasted hour in this kind of work is spent breaking a setup that was merely still propagating.</div>
+
+<h2><span class="n">E8</span>Afterwards</h2>
+<ol class="steps">
+  <li><input type="checkbox" class="tick">Two-factor authentication on <b>both</b> the GitHub account and the Namecheap account. These are the only two things that can actually be taken from you.</li>
+  <li><input type="checkbox" class="tick">Put a note in your calendar a month before the domain renews. Registrars send reminders; reminders go to spam.</li>
+  <li><input type="checkbox" class="tick">Record the date you did this at the foot of the site's technical column, so the next person — including you in two years — knows how old the arrangement is.</li>
+</ol>
+<button class="rst" id="rst">Clear all ticks</button>
+
+<footer>
+  Page E · Three Columns · values verified against GitHub Pages documentation, 10 September 2026<br>
+  This page stores your ticks in this browser only. The published pages store nothing.
+</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i);};
+  function paint(){
+    var d=$('dom').value.trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/$/,'');
+    var u=$('usr').value.trim(), r=$('repo').value.trim();
+    var gh=u.toLowerCase()+'.github.io';
+    var set={d1:d,d2:d,d3:d,d4:d,r1:r,r2:r,cn:gh+'.',cn2:gh+'.',
+             ghp:'https://'+gh+'/'+r+'/', chk1:'https://'+d, chk2:'https://www.'+d};
+    Object.keys(set).forEach(function(k){
+      var el=$(k); if(!el) return;
+      el.innerHTML='<val>'+set[k]+'</val>';
+    });
+    bindVals();
+  }
+  function bindVals(){
+    document.querySelectorAll('val').forEach(function(v){
+      if(v.dataset.b) return; v.dataset.b='1';
+      v.addEventListener('click', function(){
+        var t=v.textContent;
+        navigator.clipboard && navigator.clipboard.writeText(t);
+        var o=v.style.background; v.style.background='#cfe3cf';
+        setTimeout(function(){ v.style.background=o; }, 400);
+      });
+    });
+  }
+  ['dom','usr','repo'].forEach(function(i){ $(i).addEventListener('input', paint); });
+
+  // ticks, remembered in this browser only
+  var KEY='3col-domain-ticks';
+  var saved={};
+  try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+  var boxes=[].slice.call(document.querySelectorAll('.tick'));
+  boxes.forEach(function(b,i){
+    b.checked=!!saved[i];
+    b.parentNode.classList.toggle('on', b.checked);
+    b.addEventListener('change', function(){
+      b.parentNode.classList.toggle('on', b.checked);
+      saved[i]=b.checked;
+      try{ localStorage.setItem(KEY, JSON.stringify(saved)); }catch(e){}
+    });
+  });
+  $('rst').addEventListener('click', function(){
+    boxes.forEach(function(b,i){ b.checked=false; b.parentNode.classList.remove('on'); saved[i]=false; });
+    try{ localStorage.setItem(KEY,'{}'); }catch(e){}
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

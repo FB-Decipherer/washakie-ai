@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Page D · setup · Three Columns</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FCFAF5;--card:#F5F1E8;--ink:#1E1B16;--ink-mid:#4A443A;--rule:#DCD5C6;
+  --accent:#4C7A4E;--accentb:#B4372C;--gold:#C8992F;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;font-size:16px;line-height:1.6;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 70px;}
+header{padding:34px 0 18px;border-bottom:2px solid var(--ink);}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accentb);}
+h1{font-size:34px;margin:8px 0 0;font-weight:600;letter-spacing:-.01em;}
+.sub{color:var(--ink-mid);margin-top:8px;max-width:64ch;}
+h2{font-size:19px;margin:34px 0 4px;font-weight:600;}
+h2 .n{font-family:"IBM Plex Mono",monospace;color:var(--gold);margin-right:.5em;font-size:.85em;}
+p.hint{color:var(--ink-mid);font-size:14.5px;margin:4px 0 12px;}
+label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-mid);margin:12px 0 4px;}
+input,textarea,select{width:100%;font-family:"Source Serif 4",Georgia,serif;font-size:15px;
+  padding:9px 11px;border:1px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink);}
+textarea{min-height:78px;resize:vertical;line-height:1.5;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;}
+button{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:var(--ink);
+  color:var(--paper);border:0;padding:9px 16px;border-radius:6px;cursor:pointer;margin-top:12px;}
+button.ghost{background:none;color:var(--ink-mid);border:1px solid var(--rule);}
+button:hover{opacity:.86;}
+pre{font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.5;background:var(--card);
+  border:1px solid var(--rule);border-radius:7px;padding:13px 15px;overflow-x:auto;
+  margin-top:10px;white-space:pre-wrap;word-break:break-word;}
+.preview{border:1px solid var(--rule);border-radius:9px;padding:20px 22px;margin-top:14px;
+  background:var(--card);}
+.pv-eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-mid);}
+.pv-h1{font-size:27px;font-weight:600;margin:8px 0 0;line-height:1.15;}
+.pv-h1 .sep{color:var(--accent);padding:0 .16em;}
+.pv-claim{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accent);margin-top:14px;}
+.pv-stand{color:var(--ink-mid);margin-top:5px;font-size:16px;}
+.pv-stand b{color:var(--ink);display:block;margin-top:7px;}
+.refrow{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;margin-top:10px;
+  background:var(--card);}
+.refrow .top{display:flex;gap:10px;align-items:center;}
+.refrow .top input{flex:1;}
+.warn{border-left:3px solid var(--accentb);background:var(--card);padding:13px 15px;
+  border-radius:0 7px 7px 0;margin-top:16px;font-size:15px;}
+.ok{border-left:3px solid var(--accent);background:var(--card);padding:13px 15px;
+  border-radius:0 7px 7px 0;margin-top:16px;font-size:15px;}
+ol{padding-left:20px;} li{margin:6px 0;}
+code{font-family:"IBM Plex Mono",monospace;font-size:.88em;background:var(--card);
+  padding:1px 5px;border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Page D · not linked from the page · not indexed</div>
+  <h1>Setup</h1>
+  <p class="sub">The sheet that produces a page. Nothing here is a login and nothing here is protected, because there is nothing behind it to protect — it is a form that writes files. Fill it in, copy the output, paste it into the file, publish.</p>
+</header>
+
+<h2><span class="n">D1</span>Page header</h2>
+<p class="hint">A standing page can leave the date blank. A running series must set it: the date then appears in four places and all four must agree, and this sheet writes all four from the one field.</p>
+<div class="row">
+  <div><label>Series name</label><input id="f-series" value="Three Columns"></div>
+  <div><label>Subject line</label><input id="f-strand" value="a website that shows its sources"></div>
+</div>
+<div class="row">
+  <div><label>Date</label><input id="f-date" type="date"></div>
+  <div><label>Eyebrow (small line above the title)</label><input id="f-eyebrow" value="New Gorhambury"></div>
+</div>
+<label>The claim — one sentence, in bold. On a standing page this is your promise; in a series it is the only line that changes.</label>
+<textarea id="f-claim">Say the one thing a reader who reads nothing else should leave with.</textarea>
+<label>Dateline chip</label>
+<input id="f-chip" value="free to host · nothing to hack · works on any device · you own it outright">
+
+<div class="preview" id="pv">
+  <div class="pv-eyebrow" id="pv-eyebrow"></div>
+  <div class="pv-h1" id="pv-h1"></div>
+  <div class="pv-claim">Today's claim</div>
+  <div class="pv-stand">One day's progress, presented three ways.<b id="pv-claimtext"></b></div>
+</div>
+<button onclick="copyHeader()">Copy the header block</button>
+<pre id="out-header"></pre>
+
+<h2><span class="n">D2</span>Front image</h2>
+<p class="hint">Which picture heads the page. Type the file names that are sitting in the issue folder, one per line; the chooser lists them and shows what you picked. Captions are set at 22px, larger than body text, because a caption is often the only thing a scanning reader reads.</p>
+<label>Images available in this folder</label>
+<textarea id="f-imgs" placeholder="the-two-stencils.jpg&#10;the-census-by-play.jpg"></textarea>
+<label>Chosen for the front</label>
+<select id="f-hero"><option value="">— none, text only —</option></select>
+<label>Caption (22px)</label>
+<textarea id="f-cap" placeholder="What the reader is looking at, and what to notice in it."></textarea>
+<button class="ghost" onclick="refreshImgs()">Refresh the list</button>
+<button onclick="copyFigure()">Copy the figure block</button>
+<pre id="out-figure"></pre>
+
+<h2><span class="n">D3</span>References</h2>
+<p class="hint">One card per external source. Order is fixed: kind, title, provenance, preview, why it is cited, then the link last. The link goes last on purpose — put it first and readers click it before reading the preview, which defeats the whole column.</p>
+<div id="refs"></div>
+<button class="ghost" onclick="addRef()">Add a reference</button>
+<button onclick="copyRefs()">Copy the reference blocks</button>
+<pre id="out-refs"></pre>
+
+<h2><span class="n">D4</span>Link health</h2>
+<p class="hint">A browser cannot test somebody else's link — a cross-origin request comes back with no status attached, so an in-page checker reports healthy links as dead. The check therefore runs on a schedule, away from the reader, and writes the small file below. Tick anything known dead and give the date it was found.</p>
+<div id="deadlist"></div>
+<label>Date of the last check</label>
+<input id="f-checked" type="date">
+<button onclick="copyLinks()">Copy links.json</button>
+<pre id="out-links"></pre>
+<div class="warn"><b>If in doubt, leave it empty.</b> A missing or empty <code>links.json</code> makes the page say nothing at all about link health. That is the correct default: no file means no claim, and never a false alarm.</div>
+
+<h2><span class="n">D5</span>Publish</h2>
+<p class="hint">For someone who has used neither GitHub nor GitHub Desktop before. Two words to learn: <b>Commit</b> is &ldquo;save this version with a note.&rdquo; <b>Push</b> is &ldquo;send it to the internet.&rdquo;</p>
+<ol>
+  <li>Save <code>index.html</code> in the folder GitHub Desktop made for you.</li>
+  <li>Open <b>GitHub Desktop</b>. Your changed files are listed down the left.</li>
+  <li>Type one line in the <b>Summary</b> box saying what changed.</li>
+  <li>Click <b>Commit to main</b>.</li>
+  <li>Click <b>Push origin</b>.</li>
+  <li>Wait about a minute, then load the page with <code>?v=</code> and today's date on the end — the host caches for ten minutes and you will otherwise be looking at yesterday.</li>
+</ol>
+<div class="ok"><b>Everything else in that application can be ignored.</b> Branches, pull requests and merges exist and are irrelevant to a one-person daily record. You will not need them, this year or next.</div>
+
+<script>
+var $ = function(id){ return document.getElementById(id); };
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function longDate(v){ if(!v) return ''; var d=new Date(v+'T12:00:00');
+  return d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}); }
+function shortDate(v){ if(!v) return ''; var d=new Date(v+'T12:00:00');
+  return d.getDate()+' '+d.toLocaleDateString('en-US',{month:'long'})+' '+d.getFullYear(); }
+
+function render(){
+  var series=$('f-series').value, strand=$('f-strand').value, dv=$('f-date').value;
+  $('pv-eyebrow').textContent = $('f-eyebrow').value;
+  $('pv-h1').innerHTML = esc(series)+' <span class="sep">·</span> '+esc(strand)+
+    ' <span class="sep">·</span> '+esc(longDate(dv));
+  $('pv-claimtext').textContent = $('f-claim').value;
+  $('out-header').textContent =
+'<title>'+series+' · '+strand+' · '+longDate(dv)+'</title>\n\n'+
+'<h1><span class="seg">'+series+'</span> <span class="sep">·</span> '+
+'<span class="seg">'+strand+'</span> <span class="sep">·</span> '+
+'<span class="seg">'+longDate(dv)+'</span></h1>\n'+
+'<div class="claimlabel">Today’s claim</div>\n'+
+'<p class="standfirst">One day’s progress, presented three ways.<br>\n'+
+'  <strong>'+$('f-claim').value+'</strong></p>\n'+
+'<div class="asof">'+$('f-chip').value+'</div>\n\n'+
+'FOOTER:  '+series+' · '+strand+' · '+shortDate(dv)+'\n'+
+'COLOPHON: this issue was produced on '+shortDate(dv);
+}
+['f-series','f-strand','f-date','f-eyebrow','f-claim','f-chip'].forEach(function(id){
+  $(id).addEventListener('input', render);
+});
+
+function refreshImgs(){
+  var sel=$('f-hero'), keep=sel.value;
+  sel.innerHTML='<option value="">— none, text only —</option>';
+  $('f-imgs').value.split('\n').map(function(s){return s.trim();}).filter(Boolean)
+   .forEach(function(f){ var o=document.createElement('option'); o.value=f; o.textContent=f; sel.appendChild(o); });
+  sel.value=keep; figure();
+}
+function figure(){
+  var f=$('f-hero').value;
+  $('out-figure').textContent = !f ? '(no front image)' :
+'<figure>\n  <div class="bigfig"><a href="'+f+'"><img src="'+f+'" alt=""></a></div>\n'+
+'  <div class="figbar">drag sideways on a phone &middot; tap or click for full size</div>\n'+
+'  <figcaption>'+$('f-cap').value+'</figcaption>\n</figure>';
+}
+$('f-imgs').addEventListener('input', refreshImgs);
+$('f-hero').addEventListener('change', figure);
+$('f-cap').addEventListener('input', figure);
+
+var refs=[];
+function addRef(v){
+  refs.push(v||{kind:'',title:'',meta:'',prev:'',why:'',url:'',dead:false,date:''});
+  drawRefs();
+}
+function drawRefs(){
+  var host=$('refs'); host.innerHTML='';
+  refs.forEach(function(r,i){
+    var d=document.createElement('div'); d.className='refrow';
+    d.innerHTML='<div class="top"><b>'+(i+1)+'</b>'+
+      '<input placeholder="kind — e.g. Primary · 1916" value="'+esc(r.kind)+'" data-k="kind">'+
+      '<button class="ghost" style="margin:0" data-x="'+i+'">remove</button></div>'+
+      '<input placeholder="title" value="'+esc(r.title)+'" data-k="title" style="margin-top:8px">'+
+      '<input placeholder="provenance — who, when, what licence" value="'+esc(r.meta)+'" data-k="meta" style="margin-top:8px">'+
+      '<textarea placeholder="preview — what you would find if you went there" data-k="prev" style="margin-top:8px">'+esc(r.prev)+'</textarea>'+
+      '<textarea placeholder="why it is cited — what it is doing in THIS report" data-k="why" style="margin-top:8px">'+esc(r.why)+'</textarea>'+
+      '<input placeholder="https://…  (goes last in the card)" value="'+esc(r.url)+'" data-k="url" style="margin-top:8px">';
+    d.querySelectorAll('[data-k]').forEach(function(el){
+      el.addEventListener('input', function(){ r[el.dataset.k]=el.value; outRefs(); drawDead(); });
+    });
+    d.querySelector('[data-x]').addEventListener('click', function(){
+      refs.splice(i,1); drawRefs(); outRefs(); drawDead();
+    });
+    host.appendChild(d);
+  });
+  outRefs(); drawDead();
+}
+function outRefs(){
+  $('out-refs').textContent = refs.map(function(r,i){
+    var n=i+1;
+    return '<article class="ref" id="r'+n+'">\n'+
+    '  <span class="rnum">'+n+'</span><span class="rkind">'+r.kind+'</span>\n'+
+    '  <div class="rtitle">'+r.title+'</div>\n'+
+    '  <div class="rmeta">'+r.meta+'</div>\n'+
+    '  <div class="rprev">'+r.prev+'</div>\n'+
+    '  <div class="rwhy"><b>Why it is cited:</b> '+r.why+'</div>\n'+
+    '  <a class="rlink" href="'+r.url+'">'+r.url.replace(/^https?:\/\//,'')+'</a>\n'+
+    '</article>';
+  }).join('\n\n') || '(no references yet)';
+}
+function drawDead(){
+  var host=$('deadlist'); host.innerHTML='';
+  refs.forEach(function(r,i){
+    if(!r.title && !r.url) return;
+    var d=document.createElement('div'); d.className='refrow';
+    d.innerHTML='<div class="top"><label style="margin:0"><input type="checkbox" style="width:auto" '+
+      (r.dead?'checked':'')+'> dead</label>'+
+      '<span style="flex:1">r'+(i+1)+' &nbsp; '+esc(r.title||r.url)+'</span>'+
+      '<input type="date" style="width:170px" value="'+esc(r.date)+'"></div>';
+    var cb=d.querySelector('input[type=checkbox]'), dt=d.querySelector('input[type=date]');
+    cb.addEventListener('change', function(){ r.dead=cb.checked; outLinks(); });
+    dt.addEventListener('input', function(){ r.date=dt.value; outLinks(); });
+    host.appendChild(d);
+  });
+  outLinks();
+}
+function outLinks(){
+  var dead={};
+  refs.forEach(function(r,i){ if(r.dead) dead['r'+(i+1)] = r.date || '(date not set)'; });
+  var n=Object.keys(dead).length;
+  $('out-links').textContent = JSON.stringify({
+    checked: $('f-checked').value || '(set the date)',
+    dead: dead,
+    note: n ? (n+' source'+(n>1?'s':'')+' unreachable at the last check.')
+             : 'All sources reachable at the last check.'
+  }, null, 2);
+}
+$('f-checked').addEventListener('input', outLinks);
+
+function copy(id){ var t=$(id).textContent; navigator.clipboard.writeText(t).then(function(){
+  }, function(){ var r=document.createRange(); r.selectNode($(id));
+  getSelection().removeAllRanges(); getSelection().addRange(r); }); }
+function copyHeader(){ copy('out-header'); }
+function copyFigure(){ copy('out-figure'); }
+function copyRefs(){ copy('out-refs'); }
+function copyLinks(){ copy('out-links'); }
+
+var t=new Date().toISOString().slice(0,10);
+$('f-date').value=t; $('f-checked').value=t;
+addRef({kind:'Primary · source',title:'',meta:'',prev:'',why:'',url:'',dead:false,date:''});
+render(); refreshImgs(); figure();
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# macOS scatters these into every folder it opens
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# editors
+*.swp
+*~
+.vscode/
+.idea/
+
+# working files that should not be published
+_to_delete/
+*.tmp

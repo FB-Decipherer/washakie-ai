@@ -1,0 +1,11 @@
+# Three Columns
+# setup.html and domain.html carry <meta name="robots" content="noindex">.
+# They are deliberately NOT disallowed here: a Disallow stops a crawler reading
+# the page, which also stops it seeing the noindex, and the URL can end up
+# indexed anyway. Letting it read the page and obey the noindex is the way round
+# that actually works.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://threecolumns.online/sitemap.xml
