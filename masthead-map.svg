@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" role="img"
+     aria-label="Schematic map of Wyoming. Washakie County is marked in the north center with the ten thousand dollar request. Cheyenne and Laramie, in the far southeast, are marked with the 1.8 gigawatt data center, its four hundred jobs, and the university AI initiative's four million dollars.">
+  <style>
+    text{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+    .nm{font-size:19px;font-weight:600;fill:#FFFDFA}
+    .rl{font-size:13.5px;font-family:Georgia,serif;fill:#FFFDFA;opacity:.88}
+    .pl{font-size:12.5px;font-family:Georgia,serif;fill:#8A8175}
+    .cap{font-size:14px;font-family:Georgia,serif;fill:#8A8175}
+  </style>
+
+  <!-- Wyoming, to scale: 360 by 280 miles -->
+  <rect x="40" y="26" width="600" height="466" rx="3" fill="none" stroke="#8A8175" stroke-width="2"/>
+
+  <!-- Washakie County: the subject -->
+  <rect x="166" y="106" width="280" height="76" rx="4" fill="#4A5A4B"/>
+  <text x="306" y="137" text-anchor="middle" class="nm">Washakie County</text>
+  <text x="306" y="161" text-anchor="middle" class="rl">7,600 people &#183; asking $10,000</text>
+  <circle cx="306" cy="200" r="4.5" fill="#4A5A4B"/>
+  <text x="306" y="222" text-anchor="middle" class="pl">Worland</text>
+
+  <!-- The southeast corner: where the money is -->
+  <rect x="316" y="330" width="304" height="96" rx="4" fill="#A8461E"/>
+  <text x="468" y="361" text-anchor="middle" class="nm">Cheyenne &#183; Laramie</text>
+  <text x="468" y="385" text-anchor="middle" class="rl">1.8 GW data center &#183; 400 jobs</text>
+  <text x="468" y="407" text-anchor="middle" class="rl">university AI initiative &#183; $4M</text>
+
+  <line x1="508" y1="426" x2="508" y2="450" stroke="#A8461E" stroke-width="2"/>
+  <circle cx="508" cy="456" r="4.5" fill="#A8461E"/>
+  <text x="498" y="478" text-anchor="end" class="pl">Laramie</text>
+
+  <line x1="574" y1="426" x2="574" y2="470" stroke="#A8461E" stroke-width="2"/>
+  <circle cx="574" cy="476" r="4.5" fill="#A8461E"/>
+  <text x="584" y="480" text-anchor="start" class="pl">Cheyenne</text>
+
+  <text x="340" y="538" text-anchor="middle" class="cap">where the state&#8217;s AI money is going &#183; and where it is not</text>
+</svg>
