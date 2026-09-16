@@ -61,7 +61,8 @@ h1{font-size:clamp(30px,4.4vw,48px);line-height:1.12;font-weight:600;margin:14px
 h1 .sep{color:var(--accent);font-weight:400;padding:0 .18em;}
 h1 .seg{display:inline-block;}
 .claimlabel{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--accent);margin-top:20px;}
+  text-transform:uppercase;color:#2E5A33;margin-top:20px;}
+:root[data-theme="dark"] .claimlabel{color:#8FBE91;}
 .standfirst{font-size:20px;line-height:1.5;color:var(--ink-mid);margin:8px 0 0;max-width:62ch;}
 .standfirst strong{display:inline-block;margin-top:10px;font-weight:600;color:var(--ink);}
 .asof{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-mid);
@@ -90,7 +91,9 @@ main{display:grid;gap:0 34px;padding:30px 0 10px;
   text-transform:uppercase;color:var(--ink-mid);padding-bottom:9px;
   border-bottom:2px solid var(--ink);margin-bottom:20px;
   position:sticky;top:52px;background:var(--paper);}
-.colhead b{color:var(--gold);font-weight:700;}
+.colhead b{color:var(--gold);font-weight:700;
+  display:inline-block;border:1px solid var(--rule);border-radius:6px;
+  padding:2px 7px;margin-right:.5em;line-height:1.25;}
 .col.dim{opacity:.42;}
 h2{font-size:22px;font-weight:600;margin:30px 0 6px;letter-spacing:-.006em;}
 h2:first-of-type{margin-top:0;}
@@ -359,8 +362,16 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
   </div></details>
 
   <details><summary>What is a Three Columns site?</summary><div class="body">
-    <p>A page built so three different visitors each get what they came for without wading through the other two. Plain answers on the left. Every source previewed in the middle. Full technical detail on the right. On a phone the three become three buttons; printed, they become one document.</p>
-    <p>The middle column is the point. When a page claims something, the claim is attached to a card naming the source, who made it, and what you would find there &mdash; so a stranger can check it in ten seconds instead of taking it on faith.</p>
+    <p>One topic, laid out to serve two readers at once: the newcomer who knows nothing about it, and the reader who already knows the subject well. Plain answers on the left assume nothing. Full technical detail on the right assumes a great deal. Neither has to be watered down for the other, and neither has to wade through the other. On a phone the columns become buttons; printed, they become one document.</p>
+    <p>The second idea is about footnotes. Instead of being buried at the bottom of a page, tucked behind a link, or scattered wherever they happen to fall, every reference is gathered into one column of its own &mdash; centered in the layout, given the same visual weight as the writing, and always in the same place. Each entry says what the source is, who made it, what you would find there, and what it is doing on this page. A citation is a glance away rather than a journey, and often complete enough that you need not go to the original at all.</p>
+    <p>The third advantage is money, and it is the one that makes a pilot like this possible at all.
+      Operating expense is close to zero. There is no server, no database, no content system, no
+      subscription and no vendor &mdash; the hosting is free, the security certificate is free, the
+      typefaces are free, and the only recurring cost is the domain name at about a dollar a
+      month<span class="fn" data-ref="r7">7</span>. A site that ten years ago would have needed a
+      content system, a hosting contract and somebody to maintain all of it is now a single page that
+      current web technology serves for nothing, and that AI makes quick enough to write in an
+      afternoon rather than a fortnight.</p>
     <p>You are reading one now. This page is the proposal <em>and</em> the sample.</p>
   </div></details>
 
