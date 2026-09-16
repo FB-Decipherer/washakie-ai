@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 506" role="img"
      aria-label="Schematic map of Wyoming. Washakie County is marked in the north center with the ten thousand dollar request. Cheyenne and Laramie, in the far southeast, are marked with the 1.8 gigawatt data center, its four hundred jobs, and the university AI initiative's four million dollars.">
   <style>
     text{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
     .nm{font-size:19px;font-weight:600;fill:#FFFDFA}
     .rl{font-size:13.5px;font-family:Georgia,serif;fill:#FFFDFA;opacity:.88}
     .pl{font-size:16px;font-weight:700;font-family:Georgia,serif;fill:#5C554B}
-    .cap{font-size:14px;font-family:Georgia,serif;fill:#8A8175}
   </style>
 
   <!-- Wyoming, to scale: 360 by 280 miles -->
@@ -54,5 +53,4 @@
   <circle cx="574" cy="476" r="4.5" fill="#A8461E"/>
   <text x="562" y="486" text-anchor="end" class="pl">Cheyenne</text>
 
-  <text x="340" y="538" text-anchor="middle" class="cap">where the state&#8217;s AI money is going &#183; and where it is not</text>
 </svg>
