@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Washakie AI · A $10,000 Proposal for Grass-Roots AI in Washakie County</title>
-<meta name="description" content="A $10,000 proposal to the Wyoming Business Council: twelve working websites, four public workshops and a published method, for Washakie County. Written in the new format it proposes to teach.">
+<meta name="description" content="A $10,000 proposal to the Wyoming Business Council: twelve working websites, four public workshops and a published method, for Washakie County. Written in the new format it proposes to introduce into the county.">
 <link rel="canonical" href="https://washakie-ai.online/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="Washakie AI">
 <meta property="og:url" content="https://washakie-ai.online/">
 <meta property="og:title" content="Washakie AI — grass-roots AI for Washakie County">
-<meta property="og:description" content="A $10,000 proposal to the Wyoming Business Council: twelve working websites, four public workshops and a published method, for Washakie County. Written in the new format it proposes to teach.">
+<meta property="og:description" content="A $10,000 proposal to the Wyoming Business Council: twelve working websites, four public workshops and a published method, for Washakie County. Written in the new format it proposes to introduce into the county.">
 <meta property="og:image" content="https://washakie-ai.online/social.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Three colored columns above the words Washakie AI.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Washakie AI — grass-roots AI for Washakie County">
-<meta name="twitter:description" content="A $10,000 proposal to the Wyoming Business Council: twelve working websites, four public workshops and a published method, for Washakie County. Written in the new format it proposes to teach.">
+<meta name="twitter:description" content="A $10,000 proposal to the Wyoming Business Council: twelve working websites, four public workshops and a published method, for Washakie County. Written in the new format it proposes to introduce into the county.">
 <meta name="twitter:image" content="https://washakie-ai.online/social.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,6 +71,20 @@ h1 .seg{display:inline-block;}
   margin:0 auto 24px;}
 @media (max-width:640px){.formline{font-size:19px;margin-top:30px;}
   .formline::before{margin-bottom:20px;}}
+.examples{margin:20px auto 0;max-width:62rem;}
+.examplescap{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-mid);text-align:center;margin:0 0 10px;}
+.examplelist{list-style:none;margin:0;padding:0;display:grid;gap:10px;
+  grid-template-columns:repeat(3,minmax(0,1fr));}
+.examplelist li{background:var(--card);border:1px solid var(--rule);border-radius:8px;
+  padding:10px 13px;text-align:center;}
+.examplelist a{display:block;font-weight:600;font-size:15.5px;border-bottom:0;}
+.examplelist a:hover{color:var(--accent);}
+.examplelist span{display:block;font-size:13.5px;color:var(--ink-mid);line-height:1.35;margin-top:3px;}
+.examplelist .soon{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);}
+@media (max-width:900px){.examplelist{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:640px){.examplelist{grid-template-columns:1fr;}}
 .asof{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-mid);
   border:1px solid var(--rule);border-radius:999px;padding:5px 13px;display:inline-block;margin-top:20px;}
 
@@ -244,8 +258,9 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
 .bs-name b{font-family:"Source Serif 4",Georgia,serif; font-weight:700; color:#14110C;
   font-size:clamp(1.15rem,2.5vw,1.95rem); letter-spacing:.02em; white-space:nowrap}
 
-.bs-rail{display:flex; justify-content:space-between; font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
-  font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#6B6152;
+.bs-rail{display:flex; justify-content:space-between;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:12.5px; font-weight:600; letter-spacing:.11em; text-transform:uppercase; color:#6B6152;
   border-bottom:1px solid #C9BFA8; padding:.45rem 0 .5rem}
 .bs-head{font-family:"Source Serif 4",Georgia,serif; font-weight:700; color:#14110C;
   font-size:clamp(1.6rem,4.2vw,3rem); line-height:1.04; letter-spacing:-.015em;
@@ -340,7 +355,19 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
   </div>
 </aside>
 
-<p class="formline">This proposal is written in the new format it proposes to teach &mdash; simple, single-topic websites generated by AI.</p>
+<p class="formline">This proposal is written in the new format it proposes to introduce into the county &mdash; simple, single-topic websites generated by AI.</p>
+
+<section class="examples" aria-labelledby="examplescap">
+  <p class="examplescap" id="examplescap">Some examples already in service</p>
+  <ul class="examplelist">
+    <li><a href="https://worland-dog-law.online/">worland-dog-law.online</a>
+      <span>A town&rsquo;s dog law, plainly set out, with the ordinance text beside it</span></li>
+    <li><a href="https://baconian-ciphers.online/">baconian-ciphers.online</a>
+      <span>A daily research record, dated and never revised after publication</span></li>
+    <li><a href="https://threecolumns.online/">threecolumns.online</a>
+      <span>The technical reference <span class="soon">under construction</span></span></li>
+  </ul>
+</section>
 
 <nav role="tablist" aria-label="Columns">
   <button role="tab" id="tA" aria-controls="cA" aria-selected="true"><span class="key">A</span>Plain answers</button>
@@ -360,7 +387,7 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
   <div class="colhead"><b>A</b> &nbsp;Plain answers</div>
   <p class="lede">Start here. No jargon, nothing assumed. If you read only this column you will know what is being asked for, what it buys, and who it is for.</p>
 
-  <details open><summary>What is being asked for?</summary><div class="body">
+  <details><summary>What is being asked for?</summary><div class="body">
     <p><b>Ten thousand dollars.</b> One award, one time, from the Wyoming Business Council&rsquo;s Community Economic Growth Grant<span class="fn" data-ref="r1">1</span> &mdash; a program that exists to fund projects improving a community&rsquo;s quality of life through economic development, and whose ceiling is exactly $10,000.</p>
     <p>It pays for a twelve-month pilot in Washakie County: twelve working websites built for local institutions and small businesses, four public workshops, and a written method anybody can follow afterward without paying anyone.</p>
     <p>That is the whole ask. There is no second phase, no ongoing subsidy, and nothing to renew.</p>
@@ -384,6 +411,13 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
     <p>Each page is one HTML file &mdash; no framework, no build step, nothing to install &mdash; and a site is that page plus a few small things beside it: an icon, a social card, a list of its own links. There is no database and no server. It runs for about a dollar a month in domain registration and nothing else<span class="fn" data-ref="r7">7</span>, and the person it belongs to owns it outright.</p>
   </div></details>
 
+  <details><summary>What does a subject have to do?</summary><div class="body">
+    <p>Choose a name. That is the whole of it.</p>
+    <p>The domain, the hosting, the security certificate and the DNS are registered and run from the pilot&rsquo;s own accounts. A subject signs up for nothing, installs nothing, and holds no password. What they supply is the material &mdash; the ordinance, the price list, the certifications, the record of work &mdash; and a name they would like, taken from the <span class="mono">.online</span> family so that availability is never the obstacle.</p>
+    <p>The sheet a site is set up from &mdash; page D &mdash; can be seen <a href="setup-preview.html">here with every field switched off</a>. It is shown to make the point concrete: that is the page a subject never has to see.</p>
+    <p>The only recurring cost is that domain, bought at cost and paid two years forward out of this grant: about a dollar a month<span class="fn" data-ref="r7">7</span>. At the end of the pilot the site is handed over &mdash; the domain moved into the subject&rsquo;s own registrar account if they want it, the folder handed across if they do not &mdash; and after that the renewal is theirs to keep or to let go.</p>
+  </div></details>
+
   <details><summary>What is a Three Columns site?</summary><div class="body">
     <p>One topic, laid out to serve two readers at once: the newcomer who knows nothing about it, and the reader who already knows the subject well. Plain answers on the left assume nothing. Full technical detail on the right assumes a great deal. Neither has to be watered down for the other, and neither has to wade through the other. On a phone the columns become buttons; printed, they become one document.</p>
     <p>The second idea is about footnotes. Instead of being buried at the bottom of a page, tucked behind a link, or scattered wherever they happen to fall, every reference is gathered into one column of its own &mdash; centered in the layout, given the same visual weight as the writing, and always in the same place. Each entry says what the source is, who made it, what you would find there, and what it is doing on this page. A citation is a glance away rather than a journey, and often complete enough that you need not go to the original at all.</p>
@@ -404,7 +438,7 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
   </div></details>
 
   <details><summary>Who does the work?</summary><div class="body">
-    <p>Walter Wilkinson, of Worland. Retired technology engineer, systems engineering degree from Boston University, about twenty years in the Boston software industry before Wyoming.</p>
+    <p>Walter Wilkinson, of Worland. Retired technology engineer, systems engineering degree from Boston University, 20+ years in the Boston software industry before Wyoming.</p>
     <p>The format<span class="fn" data-ref="r6">6</span> and the working instance were both built here, unpaid, before this application existed.</p>
   </div></details>
 
@@ -579,7 +613,7 @@ Contingency                  $640
   </ul>
 
   <h2>This page</h2>
-  <p>This proposal is written in the new format it proposes to teach. Every reference in this proposal is attached to a card in column B naming where it came from. That is not a stylistic choice &mdash; it is the argument. A grant application that cannot show its own sources has no business asking for money to teach other people to show theirs.</p>
+  <p>This proposal is written in the new format it proposes to introduce into the county. Every reference in this proposal is attached to a card in column B naming where it came from. That is not a stylistic choice &mdash; it is the argument. A grant application that cannot show its own sources has no business asking for money to teach other people to show theirs.</p>
 </section>
 
 </main>
