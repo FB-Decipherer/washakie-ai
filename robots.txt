@@ -8,4 +8,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://threecolumns.online/sitemap.xml
+Sitemap: https://washakie-ai.online/sitemap.xml

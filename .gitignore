@@ -17,3 +17,6 @@ Desktop.ini
 # working files that should not be published
 _to_delete/
 *.tmp
+
+# session logs, never published
+claude/
