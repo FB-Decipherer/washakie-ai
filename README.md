@@ -1,54 +1,53 @@
-# Three Columns
+# Washakie AI
 
-A website format built on three columns: **plain answers**, **previewed sources**,
-and **full technical detail** — so three different visitors each get what they
-came for on one page, without wading through the other two.
+A $10,000 proposal for a grass-roots AI pilot in Washakie County, Wyoming: twelve working
+websites for local subjects, four public workshops, and a method published free. It is
+written in the format it proposes to teach.
 
-Live: **https://threecolumns.online**
+Live: **https://washakie-ai.online**
 
-## Why
+## What is on the page
 
-Most sites serve one reader and make the others work for it. A customer scrolling
-past technical specifications stops reading; a specialist scrolling past an
-explanation of basic terms also stops reading.
+One page, three depths:
 
-The middle column is the part nobody else does. Every external source gets a card
-that says what it is, who made it, what you would find there, and what it is doing
-on this page — **with the link last**, deliberately. When the link came first,
-readers clicked it and never read the preview, which defeated the whole column.
+| column | what it holds |
+|---|---|
+| **A · Plain answers** | What is being asked for, why the county needs it, what the money buys, who does the work, and the catch. |
+| **B · Sources** | *Internal links*: the most recent content change. *External links*: every reference to a different website, each on a card that says what the source is, who made it, what you would find there and why it is cited, with the link last. |
+| **C · How it works** | The budget, who applies, the calendar, how anyone would know it worked, and the risks. |
 
-## What it costs, and what it can't do
+On a phone the columns become three buttons; printed, they become one document.
 
-The domain, and nothing else. Hosting is GitHub Pages; the certificate is issued
-automatically. Nobody has promised free hosting forever, and the protection against
-that is structural rather than contractual: this is a handful of plain files that
-could be moved to any other static host in an afternoon, unchanged.
+## The grant
 
-It is hard to compromise because there is nothing to attack — no database, no login,
-no forms, no server code, no plugins, no cookies. Nothing in it has a version number,
-so nothing in it can become an old version.
+The Wyoming Business Council's Community Economic Growth Grant, under Rural Development
+Grants: a maximum award of $10,000, with deadlines on 1 March and 1 September. The program
+funds communities and organizations rather than individuals, so a local sponsor has to be
+the applicant.
 
 ## The files
 
 | file | what it is |
 |---|---|
-| `index.html` | the public page — columns A, B, C |
-| `setup.html` | page D — the setup sheet. Unlinked, noindex. Not an admin panel: a form that produces text you paste into a file. |
-| `domain.html` | page E — standing up a domain, step by step. Unlinked, noindex. |
-| `links.json` | link-health status, written by a scheduled check. If absent, the page says nothing about link health — no file, no claim. |
-| `favicon.svg` `robots.txt` `sitemap.xml` | the usual furniture |
+| `index.html` | the proposal: columns A, B and C, styles and script inside |
+| `masthead-map.svg` | the map at the top of the page |
+| `social.png` | the preview card shown when the link is shared |
+| `links.json` | the date of the last check of the source links, and any that were found dead; the page marks dead links from it |
+| `setup.html`, `domain.html` | working pages carried over from the Three Columns template; not linked from the page and not indexed |
+| `favicon.svg`, `apple-touch-icon.png`, `robots.txt`, `sitemap.xml`, `404.html`, `CNAME` | the usual furniture |
 
 ## Publishing
 
-Edit `index.html`, open GitHub Desktop, type one line saying what changed, click
-**Commit**, then **Push**. Live in about a minute. Two words to learn; branches and
-pull requests can be ignored indefinitely.
+Edit `index.html`, commit, and push to `main`. GitHub Pages rebuilds the site in about a
+minute. There is no build step, no database and no server.
 
-`domain.html` walks through the domain setup once, with every value filled in.
+## Built with
 
-## Using it yourself
+[Three Columns](https://threecolumns.online), the format this page uses. The finished local
+example cited in the proposal is [worland-dog-law.online](https://worland-dog-law.online).
 
-MIT licensed — copy it, change it, sell work built with it, no permission needed.
-If you do something interesting with it, saying so is welcome and not required.
+## License
+
+MIT. See `LICENSE`.
 
 Walter Wilkinson · Worland · Washakie County · Wyoming
