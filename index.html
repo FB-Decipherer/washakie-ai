@@ -283,9 +283,16 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
 .bs-body{margin:.7rem 0 0; columns:3; column-gap:2.2rem; column-rule:1px solid #C9BFA8;
   font-size:1rem; line-height:1.5; color:#3E382E; text-align:justify; hyphens:auto}
 .bs-body p{margin:0 0 .7rem; break-inside:avoid}
-.bs-body p:first-child::first-letter{float:left; font-size:3.05em; line-height:.82;
+.bs-body p:first-of-type::first-letter{float:left; font-size:3.05em; line-height:.82;
   padding:.06em .09em 0 0; font-weight:700; color:#14110C}
 .bs-body p:last-child{margin-bottom:0}
+/* the story's photo: top of the first newspaper column, credit and caption under it */
+.bs-photo{margin:0 0 .85rem; break-inside:avoid}
+.bs-photo img{display:block; width:100%; height:auto; border:1px solid #14110C}
+.bs-photo figcaption{margin-top:.35rem; font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:15px; line-height:1.4; font-style:italic; color:#3E382E; text-align:left; hyphens:none}
+.bs-credit{display:block; font-style:normal; font-size:11px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:#6B6152; text-align:right; margin-bottom:.2rem}
 .bs-turnline{border-top:3px solid #14110C; margin-top:1rem; padding-top:.7rem}
 .bs-turn{font-family:"Source Serif 4",Georgia,serif; font-weight:700; color:#9C3A20;
   font-size:clamp(1.05rem,1.8vw,1.32rem); line-height:1.3; display:block; text-wrap:balance}
@@ -351,6 +358,11 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
     <p class="bs-head">Gordon orders &ldquo;responsible&rdquo; data center development in Wyoming</p>
     <p class="bs-byline">Summarized from reporting by Clair McFarland &middot; 3 June 2026</p>
     <div class="bs-body">
+      <figure class="bs-photo">
+        <img src="governor-gordon.jpg" width="680" height="402" decoding="async"
+             alt="Governor Mark Gordon speaking at a podium microphone">
+        <figcaption><span class="bs-credit">Photo: Governor&rsquo;s Office</span>Governor Mark Gordon, who issued the order.</figcaption>
+      </figure>
       <p>The Governor has issued an executive order directing state agencies to promote the responsible
         development of data centers and other large-load facilities in Wyoming.</p>
       <p>Agencies are to minimize water use with cooling technology &ldquo;appropriate for Wyoming&rsquo;s
