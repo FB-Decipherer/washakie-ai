@@ -724,15 +724,17 @@ Contingency                  $640
   }
   document.querySelectorAll('.bcard[data-open]').forEach(function(a){
     a.addEventListener('click', function(e){
-      if (openPassage(a.dataset.open)) {
-        e.preventDefault();
-        if (history.replaceState) history.replaceState(null, '', '#' + a.dataset.open);
-      }
+      if (openPassage(a.dataset.open)) e.preventDefault();
     });
   });
-  if (location.hash.length > 1) {
-    try { openPassage(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
-  }
+  // Every answer starts closed; only a click opens one. The card no longer writes the passage
+  // into the address, and a leftover one (#proof, #why, #subject) is dropped on load instead of
+  // reopening that answer every time the page is reloaded.
+  try {
+    var h = location.hash.slice(1), t = h && document.getElementById(decodeURIComponent(h));
+    if (t && t.tagName === 'DETAILS' && history.replaceState)
+      history.replaceState(null, '', location.pathname + location.search);
+  } catch (e) {}
 
   document.getElementById('pdf').addEventListener('click', function(){ window.print(); });
   var th = document.getElementById('theme');
