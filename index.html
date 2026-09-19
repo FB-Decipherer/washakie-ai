@@ -143,15 +143,24 @@ details[open] summary::before{content:"−";}
 details .body{padding:0 0 14px 1.5em;}
 
 /* footnote markers */
-.fn{font-family:"IBM Plex Mono",monospace;font-size:.72em;vertical-align:super;
-  color:var(--accentb);border:0;padding:0 .12em;cursor:pointer;font-weight:500;}
-.fn:hover{text-decoration:underline;}
+/* reference numerals, in the text and on the cards alike: a white disc with a thin rule-colored
+   border. The numeral keeps the light-theme red in both themes, because the disc stays white. */
+.fn{font-family:"IBM Plex Mono",monospace;font-size:.66em;font-weight:500;line-height:1;
+  color:#B4372C;cursor:pointer;vertical-align:.42em;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.8em;height:1.8em;padding:0;margin:0 .08em;
+  background:#FFFFFF;border:1px solid var(--rule);border-radius:999px;}
+.fn:hover{border-color:var(--accentb);}
 
 /* ---------- reference blocks (column B) ---------- */
 .ref{border:1px solid var(--rule);border-radius:9px;padding:15px 16px;margin-bottom:15px;
   background:var(--card);scroll-margin-top:100px;}
 .ref.flash{border-color:var(--accentb);box-shadow:0 0 0 3px rgba(180,55,44,.14);}
-.rnum{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--accentb);font-weight:500;}
+.rnum{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;line-height:1;
+  color:#B4372C;vertical-align:middle;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;padding:0;
+  background:#FFFFFF;border:1px solid var(--rule);border-radius:999px;}
 .rkind{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;
   text-transform:uppercase;color:var(--ink-mid);display:inline;margin-left:.7em;}
 .rtitle{font-size:17px;font-weight:600;margin-top:7px;line-height:1.3;}
