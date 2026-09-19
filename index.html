@@ -115,6 +115,9 @@ main{display:grid;gap:0 34px;padding:30px 0 10px;
   display:inline-block;border:1px solid var(--rule);border-radius:6px;
   padding:2px 7px;margin-right:.5em;line-height:1.25;}
 .col.dim{opacity:.42;}
+.col{transition:opacity .15s;}
+.col.dim:hover{opacity:.62;}
+@media (prefers-reduced-motion:reduce){.col{transition:none;}}
 h2{font-size:22px;font-weight:600;margin:30px 0 6px;letter-spacing:-.006em;}
 h2:first-of-type{margin-top:0;}
 h3{font-size:15.5px;font-weight:600;margin:24px 0 4px;
@@ -675,12 +678,22 @@ Contingency                  $640
   });
   select('tA');
 
+  // A column is its own button: a click in a dimmed column (or tabbing into it) makes it the
+  // active one, exactly as its A/B/C button would. Capture phase, so a marker or card that
+  // sends the reader to another column still has the last word.
+  Object.keys(cols).forEach(function(tid){
+    var c = document.getElementById(cols[tid]);
+    var take = function(){ if (!c.classList.contains('active')) select(tid); };
+    c.addEventListener('click', take, true);
+    c.addEventListener('focusin', take);
+  });
+
   // footnote markers -> reference card
   document.querySelectorAll('.fn').forEach(function(f){
     f.addEventListener('click', function(){
       var el = document.getElementById(f.dataset.ref);
       if (!el) return;
-      if (!wide()) select('tB');
+      select('tB');
       el.scrollIntoView({behavior:'smooth', block:'center'});
       el.classList.add('flash');
       setTimeout(function(){ el.classList.remove('flash'); }, 1600);
