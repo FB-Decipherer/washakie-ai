@@ -13,7 +13,7 @@ One page, three depths:
 | column | what it holds |
 |---|---|
 | **A · Plain answers** | What is being asked for, why the county needs it, what the money buys, who does the work, and the catch. |
-| **B · Sources** | *Internal links*: the most recent content change. *External links*: every reference to a different website, each on a card that says what the source is, who made it, what you would find there and why it is cited, with the link last. |
+| **B · Sources** | *Internal links*: the most recent content change. *External links*: every reference to some other website, each on a card that says what the source is, who made it, what you would find there and why it is cited, with the link last. |
 | **C · How it works** | The budget, who applies, the calendar, how anyone would know it worked, and the risks. |
 
 On a phone the columns become three buttons; printed, they become one document.
