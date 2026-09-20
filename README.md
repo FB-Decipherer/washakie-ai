@@ -1,6 +1,6 @@
 # Washakie AI
 
-A $10,000 proposal for a grass-roots AI pilot in Washakie County, Wyoming: twelve working
+A $10,000 proposal for a grass-roots AI pilot program in Washakie County, Wyoming: twelve working
 websites for local subjects, four public workshops, and a method published free. It is
 written in the format it proposes to teach.
 
