@@ -6,6 +6,8 @@
 
    - Scrolls smoothly, or at once for readers whose system asks for reduced motion.
    - Takes its colors from the page's own --ink and --paper, so it follows light and dark.
+   - Adds a little blank space after the last thing on the page, so the footer's last line can
+     scroll clear of the button instead of sitting under it on a phone (21 Sep 2026).
    - Hidden in print.
    - Same file in every instance. Change it in Three Columns Tools/template first, then copy it
      out to the sites, so the class and the instances never drift apart. */
@@ -31,7 +33,8 @@
     'button.tt-float svg{display:block;width:22px;height:22px}' +
     'h1[data-tt-target]:focus{outline:none}' +
     '@media (prefers-reduced-motion:reduce){button.tt-float,button.tt-float.tt-show{transition:none}}' +
-    '@media print{button.tt-float{display:none!important}}';
+    '.tt-spacer{height:calc(72px + env(safe-area-inset-bottom, 0px))}' +
+    '@media print{button.tt-float,.tt-spacer{display:none!important}}';
   var style = doc.createElement('style');
   style.id = 'tt-style';
   style.textContent = css;
@@ -47,6 +50,10 @@
     '<path d="M12 19V5M5.5 11.5L12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" ' +
     'stroke-linecap="round" stroke-linejoin="round"/></svg>';
   doc.body.appendChild(btn);
+  var spacer = doc.createElement('div');
+  spacer.className = 'tt-spacer';
+  spacer.setAttribute('aria-hidden', 'true');
+  doc.body.appendChild(spacer);
 
   var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   var shown = false, ticking = false;
