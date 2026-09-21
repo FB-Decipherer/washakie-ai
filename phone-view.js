@@ -5,9 +5,13 @@
    What shows in the frame is the page itself at that width: its own breakpoints decide the
    layout, exactly as on the device.
 
-   - DEVELOPER-ONLY (Walter, 19 Sep 2026): readers never see the button. It appears only when
-     the page address carries ?dev, and then stays on for the rest of that browser tab, page to
-     page; ?dev=0 turns it off again. Pages mark their own button hidden, so it never flashes.
+   - DEVELOPER-ONLY by default (Walter, 19 Sep 2026): readers never see the button. It appears
+     only when the page address carries ?dev, and then stays on for the rest of that browser tab,
+     page to page; ?dev=0 turns it off again. Pages mark their own button hidden, so it never
+     flashes.
+   - FOR EVERY READER where a page asks for it (Walter, 21 Sep 2026): if the page's own button
+     carries data-public, it shows without ?dev. threecolumns.online does this, because the phone
+     layout is part of what that page demonstrates. Nothing is stored for such a reader.
    - Uses the page's own button with id="phoneview" if it has one; otherwise adds a small
      floating button at the bottom right.
    - Hidden on screens that are already phone-sized, inside the frame itself, and in print.
@@ -26,7 +30,11 @@
     return;
   }
 
-  // Developer-only: no ?dev in the address (and none earlier in this tab) means no button.
+  // For every reader on a page whose own button carries data-public (threecolumns.online).
+  var pubBtn = doc.getElementById('phoneview');
+  var pub = !!(pubBtn && pubBtn.hasAttribute('data-public'));
+
+  // Developer-only elsewhere: no ?dev in the address (and none earlier in this tab) means no button.
   var dev;
   try {
     var q = new URLSearchParams(location.search);
@@ -39,7 +47,7 @@
   } catch (e) {
     dev = /[?&]dev(?:=(?!0(?:&|$))[^&]*)?(?:&|$)/.test(location.search);
   }
-  if (!dev) {
+  if (!dev && !pub) {
     var hideStyle = doc.createElement('style');
     hideStyle.id = 'pv-style';
     hideStyle.textContent = '#phoneview[hidden]{display:none!important}';
