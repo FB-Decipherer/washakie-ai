@@ -30,6 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<noscript><style>#otherlist{display:block !important}.examplelist .otherbtn .plus{display:none !important}</style></noscript>
 <style>
 :root{
   --paper:#FCFAF5; --card:#F5F1E8; --ink:#1E1B16; --ink-mid:#4A443A;
@@ -75,7 +76,7 @@ h1 .seg{display:inline-block;}
 .examplescap{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-mid);text-align:center;margin:0 0 10px;}
 .examplelist{list-style:none;margin:0;padding:0;display:grid;gap:10px;
-  grid-template-columns:repeat(3,minmax(0,1fr));}
+  grid-template-columns:repeat(4,minmax(0,1fr));}
 .examplelist li{background:var(--card);border:1px solid var(--rule);border-radius:8px;
   padding:10px 13px;text-align:center;}
 .examplelist a{display:block;font-weight:600;font-size:15.5px;border-bottom:0;}
@@ -83,6 +84,21 @@ h1 .seg{display:inline-block;}
 .examplelist span{display:block;font-size:13.5px;color:var(--ink-mid);line-height:1.35;margin-top:3px;}
 .examplelist .soon{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--gold);}
+/* the fourth box, Other sites: a button that opens a list like column A's below the row */
+.examplelist .otherbtn{all:unset;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  width:100%;height:100%;cursor:pointer;text-align:center;box-sizing:border-box;}
+.examplelist .otherbtn:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:6px;}
+.examplelist .otherbtn .ot{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:15.5px;color:var(--ink);margin:0;}
+.examplelist .otherbtn:hover .ot{color:var(--accent);}
+.examplelist .otherbtn .plus{display:inline;margin-left:.4em;font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:15px;}
+.examplelist .otherbtn .plus::after{content:"+";}
+.examplelist .otherbtn[aria-expanded="true"] .plus::after{content:"\2212";}
+.otherlist{margin-top:10px;background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:2px 16px 6px;text-align:left;}
+.otherlist details:first-of-type{border-top:0;}
+.otherlist details:last-of-type{border-bottom:0;}
+.otherlist .golink{font-family:"IBM Plex Mono",monospace;font-size:13px;}
+.otherlist .golink::before{content:"\2192  ";color:var(--accent);}
+@media print{.otherlist{display:none !important;}}
 @media (max-width:900px){.examplelist{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media (max-width:640px){.examplelist{grid-template-columns:1fr;}}
 .asof{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-mid);
@@ -195,13 +211,6 @@ details .body{padding:0 0 14px 1.5em;}
 details[id],h2[id]{scroll-margin-top:100px;}
 details.flash > summary{color:var(--accentb);}
 h2.flash{color:var(--accentb);}
-
-/* ---- Other sites: the fourth button shows this list in place of the three columns ---- */
-.osites{padding:30px 0 10px;max-width:760px;}
-.osites[hidden],main[hidden]{display:none !important;}
-.osites .golink{font-family:"IBM Plex Mono",monospace;font-size:13px;}
-.osites .golink::before{content:"\2192  ";color:var(--accent);}
-@media print{main[hidden]{display:grid !important;} .osites{display:none !important;}}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
@@ -412,14 +421,23 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
       <span>A daily record of research into the historical origins of the world-changing Binary Code, based on extensive use of Digital Image Processing</span></li>
     <li><a href="https://threecolumns.online/">threecolumns.online</a>
       <span>The technical reference</span></li>
+    <li class="othercard"><button type="button" class="otherbtn" aria-expanded="false" aria-controls="otherlist">
+      <span class="ot">Other sites<span class="plus" aria-hidden="true"></span></span>
+      <span class="od">Samples of what the pilot program would make</span></button></li>
   </ul>
+  <div class="otherlist" id="otherlist" hidden>
+    <details><summary>East Bench Pivot Farm &mdash; a sample page for a Washakie County farm</summary><div class="body">
+      <p>An invented farm, built to show a farm here what a page of its own could look like: alfalfa hay by the bale or the ton, certified weed-free for the mountains, beef by the quarter, and sugar beets and malt barley under contract. Everything about the county, the crops, the water and the rules is real, and sourced.</p>
+      <p>The plan behind it has members of the county&rsquo;s FFA chapters as ambassadors, bringing pages like it to the farms.</p>
+      <p><a class="golink" href="https://threecolumns.online/sites/farm/">threecolumns.online/sites/farm</a></p>
+    </div></details>
+  </div>
 </section>
 
 <nav role="tablist" aria-label="Columns">
   <button role="tab" id="tA" aria-controls="cA" aria-selected="true"><span class="key">A</span>Plain answers</button>
   <button role="tab" id="tB" aria-controls="cB" aria-selected="false"><span class="key">B</span>Sources</button>
   <button role="tab" id="tC" aria-controls="cC" aria-selected="false"><span class="key">C</span>How it works</button>
-  <button role="tab" id="tD" aria-controls="cD" aria-selected="false"><span class="key">&#8599;</span>Other sites</button>
   <span class="spacer"></span>
   <button class="util" id="phoneview" type="button" hidden>Phone view</button>
   <button class="util" id="pdf">Save as PDF</button>
@@ -428,18 +446,6 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
 </div>
 
 <div class="wrap">
-<!-- ================= Other sites: the fourth button's list ================= -->
-<section class="osites" id="cD" role="tabpanel" aria-labelledby="tD" hidden>
-  <div class="colhead"><b>&#8599;</b> &nbsp;Other sites</div>
-  <p class="lede">Samples of what the pilot program would make, in the same format, each for one subject. The first is a page for a Washakie County farm.</p>
-
-  <details><summary>East Bench Pivot Farm &mdash; a sample page for a Washakie County farm</summary><div class="body">
-    <p>An invented farm, built to show a farm here what a page of its own could look like: alfalfa hay by the bale or the ton, certified weed-free for the mountains, beef by the quarter, and sugar beets and malt barley under contract. Everything about the county, the crops, the water and the rules is real, and sourced.</p>
-    <p>The plan behind it has members of the county&rsquo;s FFA chapters as ambassadors, bringing pages like it to the farms.</p>
-    <p><a class="golink" href="https://threecolumns.online/sites/farm/">threecolumns.online/sites/farm</a></p>
-  </div></details>
-</section>
-
 <main>
 
 <!-- ================= A ================= -->
@@ -744,18 +750,12 @@ Contingency                  $240
 (function(){
   var tabs = [].slice.call(document.querySelectorAll('[role="tab"]'));
   var cols = { tA:'cA', tB:'cB', tC:'cC' };
-  var mainEl = document.querySelector('main'), others = document.getElementById('cD');
   var wide = function(){ return window.matchMedia('(min-width:1101px)').matches; };
   function select(id){
-    // the fourth button, Other sites, shows its own list in place of the three columns
-    var od = id === 'tD';
-    if (others) others.hidden = !od;
-    if (mainEl) mainEl.hidden = od;
     tabs.forEach(function(t){
       var on = t.id === id;
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       var c = document.getElementById(cols[t.id]);
-      if (!c) return;
       c.classList.toggle('active', on);
       c.classList.toggle('dim', wide() ? !on : false);
     });
@@ -826,6 +826,14 @@ Contingency                  $240
     if (t && t.tagName === 'DETAILS' && history.replaceState)
       history.replaceState(null, '', location.pathname + location.search);
   } catch (e) {}
+
+  // examples row: the fourth box, Other sites, opens its list below the row
+  var otherBtn = document.querySelector('.otherbtn'), otherList = document.getElementById('otherlist');
+  if (otherBtn && otherList) otherBtn.addEventListener('click', function(){
+    var open = otherBtn.getAttribute('aria-expanded') !== 'true';
+    otherBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    otherList.hidden = !open;
+  });
 
   document.getElementById('pdf').addEventListener('click', function(){ window.print(); });
   var th = document.getElementById('theme');
