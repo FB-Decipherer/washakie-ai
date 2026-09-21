@@ -196,6 +196,13 @@ details[id],h2[id]{scroll-margin-top:100px;}
 details.flash > summary{color:var(--accentb);}
 h2.flash{color:var(--accentb);}
 
+/* ---- Other sites: the fourth button shows this list in place of the three columns ---- */
+.osites{padding:30px 0 10px;max-width:760px;}
+.osites[hidden],main[hidden]{display:none !important;}
+.osites .golink{font-family:"IBM Plex Mono",monospace;font-size:13px;}
+.osites .golink::before{content:"\2192  ";color:var(--accent);}
+@media print{main[hidden]{display:grid !important;} .osites{display:none !important;}}
+
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
   background:var(--card);padding:28px 26px 32px;margin-top:54px;
@@ -412,6 +419,7 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
   <button role="tab" id="tA" aria-controls="cA" aria-selected="true"><span class="key">A</span>Plain answers</button>
   <button role="tab" id="tB" aria-controls="cB" aria-selected="false"><span class="key">B</span>Sources</button>
   <button role="tab" id="tC" aria-controls="cC" aria-selected="false"><span class="key">C</span>How it works</button>
+  <button role="tab" id="tD" aria-controls="cD" aria-selected="false"><span class="key">&#8599;</span>Other sites</button>
   <span class="spacer"></span>
   <button class="util" id="phoneview" type="button" hidden>Phone view</button>
   <button class="util" id="pdf">Save as PDF</button>
@@ -420,6 +428,18 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
 </div>
 
 <div class="wrap">
+<!-- ================= Other sites: the fourth button's list ================= -->
+<section class="osites" id="cD" role="tabpanel" aria-labelledby="tD" hidden>
+  <div class="colhead"><b>&#8599;</b> &nbsp;Other sites</div>
+  <p class="lede">Samples of what the pilot program would make, in the same format, each for one subject. The first is a page for a Washakie County farm.</p>
+
+  <details><summary>East Bench Pivot Farm &mdash; a sample page for a Washakie County farm</summary><div class="body">
+    <p>An invented farm, built to show a farm here what a page of its own could look like: alfalfa hay by the bale or the ton, certified weed-free for the mountains, beef by the quarter, and sugar beets and malt barley under contract. Everything about the county, the crops, the water and the rules is real, and sourced.</p>
+    <p>The plan behind it has members of the county&rsquo;s FFA chapters as ambassadors, bringing pages like it to the farms.</p>
+    <p><a class="golink" href="https://threecolumns.online/sites/farm/">threecolumns.online/sites/farm</a></p>
+  </div></details>
+</section>
+
 <main>
 
 <!-- ================= A ================= -->
@@ -481,6 +501,7 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
     <p><a href="https://worland-dog-law.online">worland-dog-law.online</a><span class="fn" data-ref="r5">5</span> is a finished instance, built before any grant money existed. It takes the Worland municipal dog ordinances, sets them out in plain language, links every claim to the ordinance text, and adds an audit of where the published code and the real code disagree.</p>
     <p>It was built for the cost of a domain name. It is the argument for the whole pilot program: this is not a proposal to find out whether the idea works.</p>
     <p>A second instance is running on an entirely different subject: <a href="https://baconian-ciphers.online/">baconian-ciphers.online</a><span class="fn" data-ref="r11">11</span>, a dated research record kept in the same three columns and not revised after publication.</p>
+    <p>And a sample of what the pilot program would make: a page for a Washakie County farm<span class="fn" data-ref="r13">13</span> &mdash; an invented farm, with every fact about the county, the crops and the rules real and sourced. It heads the list under Other sites.</p>
   </div></details>
 
   <details><summary>Who does the work?</summary><div class="body">
@@ -512,9 +533,9 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
 
   <h3 class="colbsh" id="colbint">Internal links</h3>
   <p class="colbcap">Most recent content change.</p>
-  <a class="bcard" href="#after" data-open="after">
-    <span class="t">19 September 2026 &mdash; a new answer: what comes after the pilot program?</span>
-    <span class="d">Column A now names one of the most important goals of the later stages: training the county&rsquo;s workforce, especially young people.</span>
+  <a class="bcard" href="#proof" data-open="proof">
+    <span class="t">21 September 2026 &mdash; a sample page for a Washakie County farm, under Other sites</span>
+    <span class="d">The first of the example sites: an invented farm, with real and sourced facts. Column A&rsquo;s answer on proof now points to it.</span>
   </a>
 
   <h3 class="colbsh" id="colbext">External links</h3>
@@ -626,6 +647,15 @@ a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px
     <div class="rwhy"><b>Why it is cited:</b> it is the one software cost in the budget, and the reason that line is $1,200: twelve months of Max at $100. Pro would be cheaper, but a long build session can run into its limits.</div>
     <a class="rlink" href="https://claude.com/pricing">claude.com/pricing</a>
   </article>
+
+  <article class="ref" id="r13">
+    <span class="rnum">13</span><span class="rkind">Example &middot; a sample of the pilot program</span>
+    <div class="rtitle">East Bench Pivot Farm &mdash; a sample farm page</div>
+    <div class="rmeta">threecolumns.online/sites/farm &middot; an invented farm &middot; 21 September 2026</div>
+    <div class="rprev">A page for a farm east of Worland that does not exist, built on everything that does: hay by the bale or the ton, certified weed-free for the Bighorns, beef by the quarter, sugar beets and malt barley under contract. Sixteen source cards cover the county&rsquo;s crops, the water, and the Wyoming rules for selling hay and beef. It is marked SAMPLE across the top.</div>
+    <div class="rwhy"><b>Why it is cited:</b> it shows what one of the pilot program&rsquo;s twelve sites could look like. The plan behind it has the county&rsquo;s FFA chapters as ambassadors.</div>
+    <a class="rlink" href="https://threecolumns.online/sites/farm/">threecolumns.online/sites/farm</a>
+  </article>
   <div id="deadnote" hidden></div>
 </section>
 
@@ -714,12 +744,18 @@ Contingency                  $240
 (function(){
   var tabs = [].slice.call(document.querySelectorAll('[role="tab"]'));
   var cols = { tA:'cA', tB:'cB', tC:'cC' };
+  var mainEl = document.querySelector('main'), others = document.getElementById('cD');
   var wide = function(){ return window.matchMedia('(min-width:1101px)').matches; };
   function select(id){
+    // the fourth button, Other sites, shows its own list in place of the three columns
+    var od = id === 'tD';
+    if (others) others.hidden = !od;
+    if (mainEl) mainEl.hidden = od;
     tabs.forEach(function(t){
       var on = t.id === id;
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       var c = document.getElementById(cols[t.id]);
+      if (!c) return;
       c.classList.toggle('active', on);
       c.classList.toggle('dim', wide() ? !on : false);
     });
