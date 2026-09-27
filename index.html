@@ -447,6 +447,55 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
   /* everything prints, whatever the reader switched off on screen */
   #cA,#cB,#cC{display:block!important;}
 }
+/* ===== the column code =====================================================
+   Green A, yellow B, red C. A traffic signal: public at the top, technical at
+   the bottom. It rides on the spine down the left of each column, on the rule
+   under each column heading, on the A/B/C badge, on the same letters in the tab
+   strip, and on the tick in each More Info box. The buttons themselves stay
+   neutral -- the tick is the signal, not the outline. Body text stays black,
+   and every column keeps its letter and its heading, so nothing here depends on
+   color alone. */
+:root{--col-a:#4C7A4E; --col-b:#C8992F; --col-c:#B4372C;}
+:root[data-theme="dark"]{--col-a:#59925d; --col-b:#C9A245; --col-c:#d66055;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --col-a:#59925d; --col-b:#C9A245; --col-c:#d66055;}}
+
+/* the spine: each column's own left edge, in its own color */
+#cA,#cB,#cC{border-left-style:solid; border-left-width:2px; padding-left:30px;}
+#cA{border-left-color:var(--col-a);}
+#cB{border-left-color:var(--col-b);}
+#cC{border-left-color:var(--col-c);}
+
+/* the rule under each heading, and the badge */
+#cA .colhead{border-bottom-color:var(--col-a);}
+#cB .colhead{border-bottom-color:var(--col-b);}
+#cC .colhead{border-bottom-color:var(--col-c);}
+#cA .colhead b{color:var(--col-a); border-color:var(--col-a);}
+#cB .colhead b{color:var(--col-b); border-color:var(--col-b);}
+#cC .colhead b{color:var(--col-c); border-color:var(--col-c);}
+/* the same letters up in the tab strip */
+#tA .key{color:var(--col-a);} #tB .key{color:var(--col-b);} #tC .key{color:var(--col-c);}
+/* the tick in each More Info box; the box outline stays neutral */
+#ck-a:checked ~ .moreinfo label[for="ck-a"] .box{background:var(--col-a); border-color:var(--col-a);}
+#ck-b:checked ~ .moreinfo label[for="ck-b"] .box{background:var(--col-b); border-color:var(--col-b);}
+#ck-c:checked ~ .moreinfo label[for="ck-c"] .box{background:var(--col-c); border-color:var(--col-c);}
+#ck-a:checked ~ .moreinfo label[for="ck-a"],
+#ck-b:checked ~ .moreinfo label[for="ck-b"],
+#ck-c:checked ~ .moreinfo label[for="ck-c"]{border-color:var(--rule);}
+
+@media (max-width:1100px){
+  /* stacked: the spine moves to the top of each column, still its own color */
+  #cA,#cB,#cC{border-left:0; padding-left:0; border-top-style:solid; border-top-width:2px;}
+  #cA{border-top-color:var(--col-a);}
+  #cB{border-top-color:var(--col-b);}
+  #cC{border-top-color:var(--col-c);}
+}
+@media print{
+  /* on paper the code is three grays; the letter still says which column */
+  #cA{border-left-color:#4a4a4a;} #cB{border-left-color:#9a9a9a;} #cC{border-left-color:#6f6f6f;}
+  #cA .colhead{border-bottom-color:#4a4a4a;}
+  #cB .colhead{border-bottom-color:#9a9a9a;}
+  #cC .colhead{border-bottom-color:#6f6f6f;}
 </style>
 <noscript><style>
 /* No JavaScript: nothing can switch columns, so every column still switched on
