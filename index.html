@@ -34,7 +34,7 @@
 <style>
 :root{
   --paper:#FCFAF5; --card:#F5F1E8; --ink:#1E1B16; --ink-mid:#4A443A;
-  --rule:#DCD5C6; --accent:#4C7A4E; --accentb:#B4372C; --gold:#C8992F;
+  --rule:#DCD5C6; --accent:#4C7A4E; --accentb:#B4372C; --gold:#8A6A15;
   --dead:#8A8177;
 }
 :root[data-theme="dark"]{
@@ -458,10 +458,10 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
    neutral -- the tick is the signal, not the outline. Body text stays black,
    and every column keeps its letter and its heading, so nothing here depends on
    color alone. */
-:root{--col-a:#4C7A4E; --col-b:#C8992F; --col-c:#B4372C;}
-:root[data-theme="dark"]{--col-a:#59925d; --col-b:#C9A245; --col-c:#d66055;}
+:root{--col-a:#4C7A4E; --col-b:#D8AC45; --col-c:#B4372C;}
+:root[data-theme="dark"]{--col-a:#59925d; --col-b:#D9B45C; --col-c:#d66055;}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --col-a:#59925d; --col-b:#C9A245; --col-c:#d66055;}}
+  --col-a:#59925d; --col-b:#D9B45C; --col-c:#d66055;}}
 
 /* the spine: each column's own left edge, in its own color */
 #cA,#cB,#cC{border-left-style:solid; border-left-width:2px; padding-left:30px;}
@@ -479,10 +479,10 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
 #cB .colhead{border-bottom-color:var(--col-b);}
 #cC .colhead{border-bottom-color:var(--col-c);}
 #cA .colhead b{color:var(--col-a); border-color:var(--col-a);}
-#cB .colhead b{color:var(--col-b); border-color:var(--col-b);}
+#cB .colhead b{color:var(--gold); border-color:var(--col-b);}
 #cC .colhead b{color:var(--col-c); border-color:var(--col-c);}
 /* the same letters up in the tab strip */
-#tA .key{color:var(--col-a);} #tB .key{color:var(--col-b);} #tC .key{color:var(--col-c);}
+#tA .key{color:var(--col-a);} #tB .key{color:var(--gold);} #tC .key{color:var(--col-c);}
 /* the tick in each More Info box; the box outline stays neutral */
 #ck-a:checked ~ .moreinfo label[for="ck-a"] .box{background:var(--col-a); border-color:var(--col-a);}
 #ck-b:checked ~ .moreinfo label[for="ck-b"] .box{background:var(--col-b); border-color:var(--col-b);}
@@ -621,7 +621,7 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
   <div class="eyebrow">
     <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
       <rect x="1.5" y="4" width="6" height="16" rx="1.4" fill="#4C7A4E"></rect>
-      <rect x="9" y="4" width="6" height="16" rx="1.4" fill="#C8992F"></rect>
+      <rect x="9" y="4" width="6" height="16" rx="1.4" fill="#D8AC45"></rect>
       <rect x="16.5" y="4" width="6" height="16" rx="1.4" fill="#B4372C"></rect>
     </svg>
     <span>A proposal from a resident of Worland</span>
