@@ -1,0 +1,16 @@
+{
+  "name": "Anna — Washakie AI",
+  "short_name": "Anna",
+  "description": "A demonstration page for showing Washakie County businesses what a website of their own could look like, and writing down what they say about it.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FCFAF5",
+  "theme_color": "#4C7A4E",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
