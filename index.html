@@ -463,6 +463,11 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
 /* the spine: each column's own left edge, in its own color */
 #cA,#cB,#cC{border-left-style:solid; border-left-width:2px; padding-left:30px;}
 #cA{border-left-color:var(--col-a);}
+/* inside a column, anything that was accent-colored takes that column's color:
+   the source cards, the + before an answer, the arrow before a link, hovers, focus rings. */
+#cA{--accent:var(--col-a);}
+#cB{--accent:var(--col-b);}
+#cC{--accent:var(--col-c);}
 #cB{border-left-color:var(--col-b);}
 #cC{border-left-color:var(--col-c);}
 
@@ -496,6 +501,76 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
   #cA .colhead{border-bottom-color:#4a4a4a;}
   #cB .colhead{border-bottom-color:#9a9a9a;}
   #cC .colhead{border-bottom-color:#6f6f6f;}
+}
+
+/* ===== the control moves into the column heading =========================
+   One row instead of two: the box that switches a column off now sits at the
+   right end of that column's own heading rule. The heading is sticky, so the
+   control travels down the page with the reader instead of scrolling away.
+   A switched-off column collapses to a narrow strip rather than disappearing,
+   because a control that removes itself leaves no way back. */
+.colhead{display:flex; align-items:center; gap:.5em;}
+.colhead .nm{flex:1 1 auto; min-width:0;}
+.colhead .sw{flex:0 0 auto; width:19px; height:19px; border-radius:4px;
+  border:1.5px solid var(--rule); background:var(--paper); position:relative;
+  cursor:pointer; -webkit-tap-highlight-color:transparent;}
+.colhead .sw::after{content:"\2713"; position:absolute; inset:0; display:flex;
+  align-items:center; justify-content:center; font-size:13px; line-height:1;
+  color:var(--paper); opacity:0;}
+.colhead .sw:hover{border-color:var(--accent);}
+#ck-a:checked ~ main #cA .colhead .sw,
+#ck-b:checked ~ main #cB .colhead .sw,
+#ck-c:checked ~ main #cC .colhead .sw{border-color:currentColor;}
+body:has(#ck-a:checked) #cA .colhead .sw{background:var(--col-a); border-color:var(--col-a);}
+body:has(#ck-b:checked) #cB .colhead .sw{background:var(--col-b); border-color:var(--col-b);}
+body:has(#ck-c:checked) #cC .colhead .sw{background:var(--col-c); border-color:var(--col-c);}
+body:has(#ck-a:checked) #cA .colhead .sw::after,
+body:has(#ck-b:checked) #cB .colhead .sw::after,
+body:has(#ck-c:checked) #cC .colhead .sw::after{opacity:1;}
+#ck-a:focus-visible ~ main #cA .colhead .sw,
+#ck-b:focus-visible ~ main #cB .colhead .sw,
+#ck-c:focus-visible ~ main #cC .colhead .sw{outline:2px solid var(--accent); outline-offset:3px;}
+
+/* the band's own furniture goes; the reset line stays and moves up under the threshold */
+.moreinfo{border:0; padding:0; margin:0;}
+.micap,.misub,.mibtns{display:none;}
+.mireset{margin:0 0 18px;}
+
+/* a switched-off column keeps its heading and collapses to a strip.
+   The band's original rule removed the whole column; that is what this undoes.
+   Its TAB still goes, because a closed column cannot be read. */
+body:has(#ck-a:not(:checked)) #cA,
+body:has(#ck-b:not(:checked)) #cB,
+body:has(#ck-c:not(:checked)) #cC{display:block!important;}
+body:has(#ck-a:not(:checked)) #cA > *:not(.colhead),
+body:has(#ck-b:not(:checked)) #cB > *:not(.colhead),
+body:has(#ck-c:not(:checked)) #cC > *:not(.colhead){display:none!important;}
+body:has(#ck-a:not(:checked)) #cA .colhead .nm,
+body:has(#ck-b:not(:checked)) #cB .colhead .nm,
+body:has(#ck-c:not(:checked)) #cC .colhead .nm{display:none;}
+body:has(#ck-a:not(:checked)) #cA .colhead,
+body:has(#ck-b:not(:checked)) #cB .colhead,
+body:has(#ck-c:not(:checked)) #cC .colhead{border-bottom:0; flex-direction:column;
+  align-items:center; gap:11px;}
+/* the strip is narrow, so the letter and the box stack instead of sitting side by side,
+   and the spine's indent shrinks or the box is pushed out of reach */
+body:has(#ck-a:not(:checked)) #cA,
+body:has(#ck-b:not(:checked)) #cB,
+body:has(#ck-c:not(:checked)) #cC{padding-left:12px; padding-right:12px;}
+body:has(#ck-a:not(:checked)) #cA .colhead b,
+body:has(#ck-b:not(:checked)) #cB .colhead b,
+body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
+
+@media (min-width:1101px){
+  body:has(#ck-a:not(:checked)) main{grid-template-columns:76px minmax(280px,.82fr) 1fr;}
+  body:has(#ck-b:not(:checked)) main{grid-template-columns:1fr 76px 1fr;}
+  body:has(#ck-c:not(:checked)) main{grid-template-columns:1fr minmax(280px,.82fr) 76px;}
+  body:has(#ck-a:not(:checked)):has(#ck-b:not(:checked)) main{grid-template-columns:76px 76px 1fr;}
+  body:has(#ck-a:not(:checked)):has(#ck-c:not(:checked)) main{grid-template-columns:76px 1fr 76px;}
+  body:has(#ck-b:not(:checked)):has(#ck-c:not(:checked)) main{grid-template-columns:1fr 76px 76px;}
+  body:has(#ck-a:not(:checked)):has(#ck-b:not(:checked)):has(#ck-c:not(:checked)) main{
+    grid-template-columns:76px 76px 76px;}
+}
 </style>
 <noscript><style>
 /* No JavaScript: nothing can switch columns, so every column still switched on
@@ -685,6 +760,7 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
   })();
   </script>
 
+  <p class="mireset" id="ck-reset-row" hidden><button type="button" id="ck-reset">Back to this site&rsquo;s default view</button></p>
   <div class="moreinfo">
     <p class="micap">More Info</p>
     <p class="misub">Uncheck anything you would rather not read</p>
@@ -693,7 +769,6 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
       <label class="ckbtn" for="ck-b"><span class="box"></span>Sources</label>
       <label class="ckbtn" for="ck-c"><span class="box"></span>How it works</label>
     </div>
-    <p class="mireset" id="ck-reset-row" hidden><button type="button" id="ck-reset">Back to this site&rsquo;s default view</button></p>
   </div>
 </div>
 </div>
@@ -703,7 +778,7 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
 
 <!-- ================= A ================= -->
 <section class="col active" id="cA" role="tabpanel" aria-labelledby="tA">
-  <div class="colhead"><b>A</b> &nbsp;Plain answers</div>
+  <div class="colhead"><b>A</b><span class="nm"> &nbsp;Plain answers</span><label class="sw" for="ck-a" title="Show or hide this column"></label></div>
 
   <details><summary>What is being asked for?</summary><div class="body">
     <p><b>Ten thousand dollars.</b> One award, one time, from the Wyoming Business Council&rsquo;s Community Economic Growth Grant<span class="fn" data-ref="r1">1</span> &mdash; a program that exists to fund projects improving a community&rsquo;s quality of life through economic development, and whose ceiling is exactly $10,000.</p>
@@ -818,7 +893,7 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
 
 <!-- ================= B ================= -->
 <section class="col dim" id="cB" role="tabpanel" aria-labelledby="tB">
-  <div class="colhead"><b>B</b> &nbsp;Sources</div>
+  <div class="colhead"><b>B</b><span class="nm"> &nbsp;Sources</span><label class="sw" for="ck-b" title="Show or hide this column"></label></div>
   <p class="lede" style="font-size:15.5px">Everything cited in A or C, previewed. The link is always the last line &mdash; read the card first and decide whether you need the original at all.</p>
 
   <h3 class="colbsh" id="colbint">Internal links</h3>
@@ -1014,7 +1089,7 @@ body:has(#ck-c:not(:checked)) #cC:has(:target){display:block!important;}
 
 <!-- ================= C ================= -->
 <section class="col dim" id="cC" role="tabpanel" aria-labelledby="tC">
-  <div class="colhead"><b>C</b> &nbsp;How it works (Details)</div>
+  <div class="colhead"><b>C</b><span class="nm"> &nbsp;How it works (Details)</span><label class="sw" for="ck-c" title="Show or hide this column"></label></div>
   <p class="lede">Prior know-how is assumed here, and the items become more &ldquo;technical&rdquo; toward the bottom.</p>
 
   <h2>The shape of the pilot program</h2>
