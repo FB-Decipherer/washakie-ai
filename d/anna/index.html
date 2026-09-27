@@ -365,7 +365,10 @@ ol.calls .rm{float:right;border:0;background:none;color:var(--accentb);font-fami
 .threshold .mark{position:absolute; left:50%; top:50%;
   transform:translate(-50%,-50%); background:var(--paper);
   padding:0 13px; display:flex; align-items:center; line-height:0}
-.threshold .mark svg{width:22px; height:22px; flex:none;}  /* explicit, or the page's own svg rules can shrink it to nothing in the flex row */
+.threshold .mark svg{width:22px; height:22px; flex:none;}
+.threshold .mark{width:max-content;}  /* the mark is absolutely positioned, so it cannot size itself from the icon:
+     without this its box is the padding alone and the icon overflows to one side,
+     leaving the gap centered on the rule but the icon not centered in the gap. */  /* explicit, or the page's own svg rules can shrink it to nothing in the flex row */
 .threshold .cap{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   font-size:11px; letter-spacing:.15em; text-transform:uppercase;
   color:var(--ink-mid); margin:15px auto 0; max-width:30rem; line-height:1.5}
@@ -566,6 +569,36 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
   body:has(#ck-a:not(:checked)):has(#ck-b:not(:checked)):has(#ck-c:not(:checked)) main{
     grid-template-columns:76px 76px 76px;}
 }
+
+/* ===== the selected tab is filled with its own column's color ==============
+   The label colour is not a guess: each fill was measured against paper and
+   against ink, and the one that reads takes it. Gold is the odd one out in the
+   light theme -- white on gold is 2.50:1, which fails, so its label is ink at
+   6.58:1. In the dark theme all three fills are light, so all three labels are
+   ink. Every pair below clears 4.5:1. */
+:root{--on-a:#FCFAF5; --on-b:#1E1B16; --on-c:#FCFAF5;}
+:root[data-theme="dark"]{--on-a:#1E1B16; --on-b:#1E1B16; --on-c:#1E1B16;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --on-a:#1E1B16; --on-b:#1E1B16; --on-c:#1E1B16;}}
+#tA[aria-selected="true"]{background:var(--col-a); border-color:var(--col-a); color:var(--on-a);}
+#tB[aria-selected="true"]{background:var(--col-b); border-color:var(--col-b); color:var(--on-b);}
+#tC[aria-selected="true"]{background:var(--col-c); border-color:var(--col-c); color:var(--on-c);}
+#tA[aria-selected="true"] .key{color:var(--on-a);}
+#tB[aria-selected="true"] .key{color:var(--on-b);}
+#tC[aria-selected="true"] .key{color:var(--on-c);}
+/* unselected, the letter alone carries the code, as it already did */
+
+/* the mark in the threshold is the same one as the favicon and the masthead:
+   three equal bars, one per column, taking the column colors so it follows the
+   theme. It used to be tall-short-tall in a single color, which read as a flag. */
+.threshold .mark svg rect:nth-of-type(1){fill:var(--col-a);}
+.threshold .mark svg rect:nth-of-type(2){fill:var(--col-b);}
+.threshold .mark svg rect:nth-of-type(3){fill:var(--col-c);}
+@media print{
+  .threshold .mark svg rect:nth-of-type(1){fill:#4a4a4a;}
+  .threshold .mark svg rect:nth-of-type(2){fill:#9a9a9a;}
+  .threshold .mark svg rect:nth-of-type(3){fill:#6f6f6f;}
+}
 </style>
 </head>
 <body>
@@ -622,7 +655,7 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
 
 <div class="wrap">
 <div class="threshold" role="separator" aria-label="Below this line, the page is in the Three Columns format">
-  <div class="bar"><div class="mark"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><rect x="1.5" y="4" width="6" height="16" rx="1.4" fill="currentColor"></rect><rect x="9" y="7.5" width="6" height="9" rx="1.4" fill="currentColor"></rect><rect x="16.5" y="4" width="6" height="16" rx="1.4" fill="currentColor"></rect></svg></div></div>
+  <div class="bar"><div class="mark"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><rect x="1.5" y="4" width="6" height="16" rx="1.4"></rect><rect x="9" y="4" width="6" height="16" rx="1.4"></rect><rect x="16.5" y="4" width="6" height="16" rx="1.4"></rect></svg></div></div>
   <p class="cap">Everything below is the same on every 3Col site</p>
 </div>
 
