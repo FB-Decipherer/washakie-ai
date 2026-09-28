@@ -771,13 +771,26 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
     for(i=0;i<ids.length;i++) el[ids[i]].addEventListener('change',save);
     /* following a citation into a column the reader closed switches it back on,
        so the grid stays consistent and what they are reading is really there */
-    function openForTarget(){
-      var h=location.hash.slice(1); if(!h) return;
-      var t=document.getElementById(h); if(!t) return;
+    /* Switch on whichever column holds this element. Returns true when that
+       actually changed something. */
+    function reveal(t){
+      if(!t) return false;
       for(var j=0;j<ids.length;j++){
         var c=document.getElementById(COL[ids[j]]);
-        if(c && c.contains(t) && !el[ids[j]].checked){ el[ids[j]].checked=true; save(); return; }
+        if(c && c.contains(t)){
+          if(el[ids[j]].checked) return false;
+          el[ids[j]].checked=true; save(); return true;
+        }
       }
+      return false;
+    }
+    /* A numeral and an internal card are handled in script and never touch
+       location.hash, so hashchange cannot reach them. They call this instead;
+       without it a citation into a switched-off column scrolls to nothing. */
+    window.threeColReveal = reveal;
+    function openForTarget(){
+      var h=location.hash.slice(1); if(!h) return;
+      reveal(document.getElementById(h));
     }
     window.addEventListener('hashchange', openForTarget);
     document.addEventListener('DOMContentLoaded',function(){
@@ -1252,6 +1265,7 @@ Contingency                  $240
     f.addEventListener('click', function(){
       var el = document.getElementById(f.dataset.ref);
       if (!el) return;
+      if (window.threeColReveal) window.threeColReveal(el);
       select('tB');
       el.scrollIntoView({behavior:'smooth', block:'center'});
       el.classList.add('flash');
@@ -1263,6 +1277,7 @@ Contingency                  $240
   function openPassage(id){
     var d = document.getElementById(id);
     if (!d) return false;
+    if (window.threeColReveal) window.threeColReveal(d);
     var col = d.closest('.col');
     if (col) {
       var tab = tabs.filter(function(t){ return cols[t.id] === col.id; })[0];
