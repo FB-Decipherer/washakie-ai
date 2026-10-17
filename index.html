@@ -187,6 +187,21 @@ details .body{padding:0 0 14px 1.5em;}
 .rlink{display:block;margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;
   padding:8px 11px;border:1px solid var(--rule);border-radius:6px;
   background:var(--paper);word-break:break-all;border-bottom:1px solid var(--rule);}
+
+/* ---- item 4 when the destination is not prose -----------------------------
+   A baked thumbnail sits inside the preview, floated, with the sentence running
+   beside it. alt="" because that sentence already describes it: a screen reader
+   should hear it once, not twice. Strip every image and the cards read exactly
+   as they did before. Added 16 October 2026. */
+.rshot{float:left; width:112px; height:auto; margin:3px 14px 7px 0;
+  border:1px solid var(--rule); border-radius:3px; background:#FFFFFF;}
+.rprev::after{content:""; display:block; clear:both;}
+.rfacts{font-family:"IBM Plex Mono",monospace; font-size:13.5px; font-weight:500;
+  color:var(--ink);}
+@media (max-width:640px){
+  .rshot{float:none; display:block; width:100%; max-width:200px; margin:0 0 10px;}
+}
+@media print{ .rshot{width:86px; margin-right:11px;} }
 .rlink:hover{border-color:var(--accent);}
 .rlink::before{content:"→ ";color:var(--accent);}
 .rlink.broken{color:var(--dead);border-style:dashed;cursor:not-allowed;
