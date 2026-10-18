@@ -1,4 +1,4 @@
-/* top-button.js - a Three Columns class feature, 19 September 2026.
+/* top-button.js - a GYRO class feature, 19 September 2026.
 
    A round button with an up arrow that takes the reader back to the top of the page. It appears
    at the bottom right once the reader has scrolled about a screen down, and hides again near the

@@ -1,4 +1,4 @@
-# Three Columns
+# GYRO
 # setup.html and domain.html carry <meta name="robots" content="noindex">.
 # They are deliberately NOT disallowed here: a Disallow stops a crawler reading
 # the page, which also stops it seeing the noindex, and the URL can end up
