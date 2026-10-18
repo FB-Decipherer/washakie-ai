@@ -10,7 +10,7 @@
      page to page; ?dev=0 turns it off again. Pages mark their own button hidden, so it never
      flashes.
    - FOR EVERY READER where a page asks for it (Walter, 21 Sep 2026): if the page's own button
-     carries data-public, it shows without ?dev. threecolumns.online does this, because the phone
+     carries data-public, it shows without ?dev. gyro-sites.online does this, because the phone
      layout is part of what that page demonstrates. Nothing is stored for such a reader.
    - Uses the page's own button with id="phoneview" if it has one; otherwise adds a small
      floating button at the bottom right.
@@ -30,7 +30,7 @@
     return;
   }
 
-  // For every reader on a page whose own button carries data-public (threecolumns.online).
+  // For every reader on a page whose own button carries data-public (gyro-sites.online).
   var pubBtn = doc.getElementById('phoneview');
   var pub = !!(pubBtn && pubBtn.hasAttribute('data-public'));
 

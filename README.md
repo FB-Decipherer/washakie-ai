@@ -43,7 +43,7 @@ minute. There is no build step, no database and no server.
 
 ## Built with
 
-[Three Columns](https://threecolumns.online), the format this page uses. The finished local
+[Three Columns](https://gyro-sites.online), the format this page uses. The finished local
 example cited in the proposal is [worland-dog-law.online](https://worland-dog-law.online).
 
 ## License
