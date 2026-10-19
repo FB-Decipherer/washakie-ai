@@ -1,4 +1,4 @@
-/* cite-back.js - a GYRO class feature, 14 October 2026.
+/* cite-back.js - a GYR-O class feature, 14 October 2026.
 
    Every source card in column B opens with a small numbered circle. This makes that circle a
    standing way back: click it and the page goes to the numeral in column A or C that cites the

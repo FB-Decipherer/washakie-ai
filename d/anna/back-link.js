@@ -1,4 +1,4 @@
-/* back-link.js - a GYRO class feature, 19 September 2026.
+/* back-link.js - a GYR-O class feature, 19 September 2026.
 
    A reference numeral in column A or C opens its source card in column B. This adds a small
    Back button at the foot of that card, pointing the way the reader came: "← Back" when the

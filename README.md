@@ -33,7 +33,7 @@ the applicant.
 | `masthead-map.svg` | the map at the top of the page |
 | `social.png` | the preview card shown when the link is shared |
 | `links.json` | the date of the last check of the source links, and any that were found dead; the page marks dead links from it |
-| `setup.html`, `domain.html` | working pages carried over from the GYRO template; not linked from the page and not indexed |
+| `setup.html`, `domain.html` | working pages carried over from the GYR-O template; not linked from the page and not indexed |
 | `favicon.svg`, `apple-touch-icon.png`, `robots.txt`, `sitemap.xml`, `404.html`, `CNAME` | the usual furniture |
 
 ## Publishing
@@ -43,7 +43,7 @@ minute. There is no build step, no database and no server.
 
 ## Built with
 
-[GYRO](https://gyro-sites.online), the format this page uses. The finished local
+[GYR-O](https://gyro-sites.online), the format this page uses. The finished local
 example cited in the proposal is [worland-dog-law.online](https://worland-dog-law.online).
 
 ## License
