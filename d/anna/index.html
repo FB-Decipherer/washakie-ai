@@ -674,7 +674,7 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
 </style>
 </head>
 <body>
-<input class="gyro-in" type="checkbox" id="g-intro">
+<input class="gyro-in" type="checkbox" id="g-intro" checked>
 <input class="gyro-in" type="checkbox" id="g-info">
 <div class="gyro-index">
   <div class="gyro-ix">
@@ -1362,10 +1362,10 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
 (function(){
   function open(){
     var h = location.hash.slice(1); if(!h) return;
-    /* #intro, #info or #intro+info (as sent by gyro-sites.online/sites/) tick those boxes */
+    /* #intro, #info, #intro+info or #none (as sent by gyro-sites.online/sites/) tick those boxes */
     var w = h.split('+');
-    if (w.every(function(x){return x==='intro'||x==='info';})){
-      w.forEach(function(x){ document.getElementById('g-'+x).checked = true; }); return;
+    if (w.every(function(x){return x==='intro'||x==='info'||x==='none';})){
+      ['intro','info'].forEach(function(x){ document.getElementById('g-'+x).checked = w.indexOf(x) >= 0; }); return;
     }
     var t = document.getElementById(h); if(!t) return;
     var parts = [['gyro-intro','g-intro'],['gyro-info','g-info']];
