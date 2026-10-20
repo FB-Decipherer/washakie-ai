@@ -651,6 +651,77 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
 .formkey .fk-sub{display:block;font-size:15px;color:var(--ink-mid);margin-top:2px;}
 .formkey .nw{white-space:nowrap;}
 @media (max-width:640px){.formkey{font-size:17px;}.formkey .fk-sub{font-size:14px;}}
+
+/* ===================== GYR-O: Intro, Info, and the austere index ===================== */
+.gyro-in{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none;}
+.gyro-index{background:#fff;color:#000;border-bottom:1px solid #000;
+  padding:28px max(16px,env(safe-area-inset-right,0px)) 26px max(16px,env(safe-area-inset-left,0px));
+  font-family:"Source Serif 4",Georgia,serif;}
+.gyro-ix{max-width:1508px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px 28px;flex-wrap:wrap;}
+.gyro-ixtext{min-width:0;flex:1 1 16rem;}
+.gyro-thumb{display:block;flex:0 0 auto;width:clamp(150px,18vw,220px);line-height:0;border:1px solid #000;}
+.gyro-thumb img{display:block;width:100%;height:auto;}
+.gyro-thumb:focus-visible,.gyro-thumb:hover{outline:2px solid #000;outline-offset:3px;}
+/* the same picture heads Intro, so with Intro on the index drops its copy */
+#g-intro:checked ~ .gyro-index .gyro-thumb{display:none;}
+@media (max-width:640px){.gyro-thumb{width:100%;max-width:340px;}}
+@media print{.gyro-thumb{display:none;}}
+.gyro-title{margin:0;font-size:clamp(26px,3.6vw,38px);font-weight:600;line-height:1.15;color:#000;}
+.gyro-boxes{margin:16px 0 0;display:flex;gap:28px;flex-wrap:wrap;}
+.gyro-boxes label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:16px;letter-spacing:.04em;color:#000;}
+.gbox{width:20px;height:20px;border:2px solid #000;background:#fff;display:inline-block;position:relative;flex:none;}
+#g-intro:checked ~ .gyro-index label[for="g-intro"] .gbox::after,
+#g-info:checked ~ .gyro-index label[for="g-info"] .gbox::after{
+  content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;
+  border:solid #000;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+#g-intro:focus-visible ~ .gyro-index label[for="g-intro"] .gbox,
+#g-info:focus-visible ~ .gyro-index label[for="g-info"] .gbox{outline:2px solid #000;outline-offset:3px;}
+
+.gyro-intro,.gyro-info{display:none;}
+#g-intro:checked ~ .gyro-intro{display:block;}
+#g-info:checked ~ .gyro-info{display:block;}
+/* the threshold divides Intro from Info, so it shows only when both are on the page */
+#g-intro:not(:checked) ~ .gyro-info .threshold{display:none;}
+/* the control strip sticks for the whole of Info, not just its own short block */
+.navwrap{position:sticky;top:0;z-index:20;background:var(--paper);}
+.navwrap nav{position:static;margin-top:0;}
+
+/* Dark belongs to Info. With Info off, the page cannot be dark, whatever was chosen. */
+:root:has(#g-info:not(:checked)){
+  --paper:#FCFAF5; --card:#F5F1E8; --ink:#1E1B16; --ink-mid:#4A443A;
+  --rule:#DCD5C6; --accent:#4C7A4E; --accentb:#B4372C; --gold:#8A6A15; --dead:#8A8177;
+  --col-a:#4C7A4E; --col-b:#D8AC45; --col-c:#B4372C;
+  --on-a:#FCFAF5; --on-b:#1E1B16; --on-c:#FCFAF5; color-scheme:light;}
+body:has(#g-info:not(:checked)){background:#fff;}
+
+/* paper carries everything, in order: the index line, Intro, then Info */
+@media print{
+  .gyro-intro,.gyro-info{display:block !important;}
+  #g-intro:not(:checked) ~ .gyro-info .threshold{display:block !important;}
+  .gyro-boxes{display:none;}
+  .navwrap{position:static;}
+}
+
+/* Technical Colophon: the last thing in column C, the polar opposite of the first answer in A */
+.colophon{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin:10px 0 0;
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.5;color:var(--ink-mid);}
+.colophon dt{color:var(--ink);font-weight:500;}
+.colophon dd{margin:0;min-width:0;overflow-wrap:anywhere;}
+.colophon code{font-size:inherit;}
+.colophon a{color:inherit;border-bottom:0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;}
+.colophon a:hover{color:var(--ink);}
+@media (max-width:640px){.colophon{grid-template-columns:1fr;gap:0;}.colophon dd{margin-bottom:8px;}}
+
+.gyro-gloss{font-style:italic;}
+
+/* the one orange on a reader's page: the link to how the site was built */
+:root{--col-o:#b45309;}
+:root[data-theme="dark"]{--col-o:#f0913a;}
+footer a.autogyro{color:var(--col-o);border-bottom:1px solid var(--col-o);font-weight:600;}
+footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;}
+@media print{footer a.autogyro{color:#000;border-bottom-color:#000;}}
+
 </style>
 <noscript><style>
 /* No JavaScript: nothing can switch columns, so every column still switched on
@@ -661,7 +732,24 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
 </style></noscript>
 </head>
 <body>
+<input class="gyro-in" type="checkbox" id="g-intro">
+<input class="gyro-in" type="checkbox" id="g-info">
+<div class="gyro-index">
+  <div class="gyro-ix">
+    <div class="gyro-ixtext">
+      <p class="gyro-title">Grass-Roots AI for Washakie County</p>
+      <div class="gyro-boxes">
+        <label for="g-intro"><span class="gbox" aria-hidden="true"></span>Intro</label>
+        <label for="g-info"><span class="gbox" aria-hidden="true"></span>Info</label>
+      </div>
+    </div>
+    <a class="gyro-thumb" href="masthead-map.svg" target="_blank" rel="noopener" title="Open the full-size picture">
+      <img src="masthead-map.svg" width="680" height="506" alt="Schematic map of Wyoming: Washakie County marked in the north center asking for $10,000, against Cheyenne and Laramie in the far southeast carrying a 1.8 gigawatt data center and the university AI initiative. Opens full size.">
+    </a>
+  </div>
+</div>
 
+<div class="gyro-intro">
 <div class="wrap">
 <header>
     <div class="masthead-text">
@@ -763,6 +851,17 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
   </div>
 </section>
 
+</div>
+</div>
+
+<div class="gyro-info">
+<div class="wrap">
+<div class="threshold" role="separator" aria-label="The threshold: Intro above it, Info below it, in the GYR-O format">
+  <div class="bar"><div class="mark"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><rect x="1.5" y="4" width="6" height="16" rx="1.4"></rect><rect x="9" y="4" width="6" height="16" rx="1.4"></rect><rect x="16.5" y="4" width="6" height="16" rx="1.4"></rect></svg></div></div>
+  <p class="cap">The page layout below is standard on every GYR-O site</p>
+</div>
+</div>
+<div class="wrap navwrap">
 <nav role="tablist" aria-label="Columns">
   <button role="tab" id="tA" aria-controls="cA" aria-selected="true"><span class="key">A</span>Plain answers</button>
   <button role="tab" id="tB" aria-controls="cB" aria-selected="false"><span class="key">B</span>Sources</button>
@@ -773,12 +872,7 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
   <button class="util" id="theme">Dark</button>
 </nav>
 </div>
-
 <div class="wrap">
-<div class="threshold" role="separator" aria-label="Below this line, the page is in the GYR-O format">
-  <div class="bar"><div class="mark"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22"><rect x="1.5" y="4" width="6" height="16" rx="1.4"></rect><rect x="9" y="4" width="6" height="16" rx="1.4"></rect><rect x="16.5" y="4" width="6" height="16" rx="1.4"></rect></svg></div></div>
-  <p class="cap">The page layout below is standard on every GYR-O site</p>
-</div>
 
 <div class="expand">
   <!-- ===================================================================
@@ -927,17 +1021,19 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
       <li><b>A written method</b>, published free, so the thirteenth site costs nobody anything.</li>
       <li><b>One AI subscription</b>, the Claude plan the sites are built with, for the twelve months of the pilot program and no longer<span class="fn" data-ref="r12">12</span>.</li>
     </ul>
-    <p>Each page is one HTML file &mdash; no framework, no build step, nothing to install &mdash; and a site is that page plus a few small things beside it: an icon, a social card, a list of its own links. There is no database and no server. The hosting costs nothing at all; it runs for about a dollar a month in domain registration and nothing else<span class="fn" data-ref="r7">7</span>, and the person it belongs to owns it outright.</p>
+    <p>Each page is one HTML file &mdash; no framework, no build step, nothing to install &mdash; and a site is that page plus a few small things beside it: an icon, a social card, a list of its own links. There is no database and no server. The hosting costs nothing at all; the only cost is the name, roughly $11 to $28 a year in domain registration depending on the ending, and nothing else<span class="fn" data-ref="r7">7</span>, and the person it belongs to owns it outright.</p>
   </div></details>
 
   <details id="subject"><summary>What does a subject have to do?</summary><div class="body">
     <p>Choose a name. That is the whole of it.</p>
     <p>The domain, the hosting, the security certificate and the DNS are registered and run from the pilot program&rsquo;s own accounts. A subject signs up for nothing, installs nothing, and holds no password. What they supply is the material &mdash; the ordinance, the price list, the certifications, the record of work &mdash; and a name they would like, taken from the <span class="mono">.online</span> family so that availability is never the obstacle.</p>
     <p>The sheet a site is set up from &mdash; page D &mdash; can be seen <a href="setup-preview.html">here with every field switched off</a><span class="fn" data-ref="r10">10</span>. It is shown to make the point concrete: that is the page a subject never has to see.</p>
-    <p>The only recurring cost is that domain, bought at cost and paid two years forward out of this grant: about a dollar a month<span class="fn" data-ref="r7">7</span>. At the end of the pilot program the site is handed over &mdash; the domain moved into the subject&rsquo;s own registrar account if they want it, the folder handed across if they do not &mdash; and after that the renewal is theirs to keep or to let go.</p>
+    <p>The only recurring cost is that domain, bought at cost and paid two years forward out of this grant: for a <span class="mono">.online</span> name, under $5 for the first year and about $28 a year after that<span class="fn" data-ref="r7">7</span>. At the end of the pilot program the site is handed over &mdash; the domain moved into the subject&rsquo;s own registrar account if they want it, the folder handed across if they do not &mdash; and after that the renewal is theirs to keep or to let go.</p>
+    <p><b>Or no name of their own at all.</b> A group can share one: a farm cooperative buys <span class="mono">washakiefarms.online</span> once, and every member&rsquo;s site lives under it free, at an address like <span class="mono">eastbench.washakiefarms.online</span>, with one index page listing them all. It is like license plates &mdash; everyone gets one, a vanity plate costs a little extra each year, and it is up to you.</p>
   </div></details>
 
   <details><summary>What is a GYR-O site?</summary><div class="body">
+    <p><b>Every GYR-O page comes in two parts: Intro and Info.</b> <b>Intro</b>, above the double line, is whatever this subject needs &mdash; its name, a picture, a paragraph &mdash; and it differs from site to site. <b>Info</b>, below the line, is the standard layout, the same on every GYR-O site: three columns of plain answers, sources and technical detail. A reader who has used one already knows where to look on the next.</p>
     <p>One topic, laid out to serve two readers at once: the newcomer who knows nothing about it, and the reader who already knows the subject well. Plain answers on the left assume nothing. Full technical detail on the right assumes a great deal. Neither has to be watered down for the other, and neither has to wade through the other. On a phone the columns become buttons; printed, they become one document.</p>
     <p>The second idea is about footnotes, and it is overdue. Printed notes at the foot of the page go back at least to the Bishops&rsquo; Bible of 1568<span class="fn" data-ref="r21">21</span>, and the way a reader reaches them has hardly changed since: leave the sentence, find the mark, come back if you can. Instead of being buried at the bottom of a page, tucked behind a link, or scattered wherever they happen to fall, every reference is gathered into one column of its own &mdash; centered in the layout, given the same visual weight as the writing, and always in the same place. Each entry says what the source is, who made it, what you would find there, and what it is doing on this page. A citation is a glance away rather than a journey, and often complete enough that you need not go to the original at all.</p>
     <p>The third advantage is money, and it is the one that makes a pilot program like this possible at all.
@@ -1004,6 +1100,10 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
 <!-- ================= B ================= -->
 <section class="col dim" id="cB" role="tabpanel" aria-labelledby="tB">
   <div class="colhead"><b>B</b><span class="nm"> &nbsp;Sources</span><label class="sw" for="ck-b" title="Show or hide this column"></label></div>
+  <h3 class="colbsh" id="colbread">How to read a card</h3>
+  <p class="colbcap">Every card below reads the same way, top to bottom. Parts 4 and 5 are the ones a bare footnote never gives you.</p>
+  <ol class="cardkey" style="margin:0 0 6px;padding-left:1.5em;font-size:15.5px;line-height:1.45;color:var(--ink-mid)"><li><b>Number and kind</b> &mdash; what sort of thing it is</li><li><b>Title</b> &mdash; what it is called</li><li><b>Provenance</b> &mdash; who made it, when, under what license</li><li><b>Preview</b> &mdash; what you would find if you went there</li><li><b>Why it is cited</b> &mdash; what it is doing on this page</li><li><b>The link</b> &mdash; last, and only last</li></ol>
+  <p class="colbcap" style="margin-top:2px">An article, a photograph, a map, a book, a dataset and a film, each carded: <a href="https://gyro-sites.online/source-cards.html">see every kind at work &rarr;</a></p>
   <h3 class="colbsh" id="colbint">Internal links</h3>
   <p class="colbcap">The two most recent content changes, and the record behind them.</p>
   <a class="bcard" href="#catch" data-open="catch">
@@ -1259,7 +1359,7 @@ Contingency                  $240
   <p>Stated in advance, because a measure invented afterward is not a measure:</p>
   <ul>
     <li><b>Sites live and reachable</b> twelve months after the award, each on its own domain, each owned by its subject.</li>
-    <li><b>Sites still standing</b> six months after that, without further intervention &mdash; the real test of a thing that costs a dollar a month to keep.</li>
+    <li><b>Sites still standing</b> six months after that, without further intervention &mdash; the real test of a thing that costs a couple of dollars a month to keep.</li>
     <li><b>Attendance</b> at the four workshops, counted honestly, including the ones nobody comes to.</li>
     <li><b>A thirteenth site built by somebody else</b>, from the published method, without asking for help. That is the only measure that matters, and the only one that cannot be manufactured.</li>
   </ul>
@@ -1452,5 +1552,25 @@ Contingency                  $240
 <script src="top-button.js" defer></script>
 <script src="back-link.js" defer></script>
 <script src="cite-back.js" defer></script>
+</div>
+
+<script>
+/* A link that lands inside Intro or Info switches that part on, so a reader who
+   follows somebody's link straight to a source card is not shown a blank page. */
+(function(){
+  function open(){
+    var h = location.hash.slice(1); if(!h) return;
+    var t = document.getElementById(h); if(!t) return;
+    var parts = [['gyro-intro','g-intro'],['gyro-info','g-info']];
+    for (var i=0;i<parts.length;i++){
+      var box = document.querySelector('.'+parts[i][0]);
+      if (box && box.contains(t)) document.getElementById(parts[i][1]).checked = true;
+    }
+    if (t.scrollIntoView) t.scrollIntoView();
+  }
+  window.addEventListener('hashchange', open);
+  document.addEventListener('DOMContentLoaded', open);
+})();
+</script>
 </body>
 </html>
