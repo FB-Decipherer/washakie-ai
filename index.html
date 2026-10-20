@@ -868,7 +868,7 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
   <button role="tab" id="tC" aria-controls="cC" aria-selected="false"><span class="key">C</span>How it works</button>
   <span class="spacer"></span>
   <button class="util" id="phoneview" type="button" hidden>Phone view</button>
-  <button class="util" id="pdf">Save as PDF</button>
+  <button class="util" id="pdf" title="Grass-Roots-AI-for-Washakie-County.pdf">Download PDF</button>
   <button class="util" id="theme">Dark</button>
 </nav>
 </div>
@@ -1510,7 +1510,8 @@ Contingency                  $240
     otherList.hidden = !open;
   });
 
-  document.getElementById('pdf').addEventListener('click', function(){ window.print(); });
+  function gyroPdf(n){var a=document.createElement('a');a.href=n;a.download=n;document.body.appendChild(a);a.click();a.remove();}
+  document.getElementById('pdf').addEventListener('click', function(){ gyroPdf('Grass-Roots-AI-for-Washakie-County.pdf'); });
   var th = document.getElementById('theme');
   th.addEventListener('click', function(){
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -1560,6 +1561,11 @@ Contingency                  $240
 (function(){
   function open(){
     var h = location.hash.slice(1); if(!h) return;
+    /* #intro, #info or #intro+info (as sent by gyro-sites.online/sites/) tick those boxes */
+    var w = h.split('+');
+    if (w.every(function(x){return x==='intro'||x==='info';})){
+      w.forEach(function(x){ document.getElementById('g-'+x).checked = true; }); return;
+    }
     var t = document.getElementById(h); if(!t) return;
     var parts = [['gyro-intro','g-intro'],['gyro-info','g-info']];
     for (var i=0;i<parts.length;i++){

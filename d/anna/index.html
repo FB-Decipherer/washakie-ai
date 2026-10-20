@@ -745,7 +745,7 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
     <div class="sr-only" id="searchstatus" role="status" aria-live="polite"></div>
   </div>
   <button class="util" id="phoneview" type="button" hidden>Phone view</button>
-  <button class="util" id="pdf">Save as PDF</button>
+  <button class="util" id="pdf" title="Anna.pdf">Download PDF</button>
   <button class="util" id="theme">Dark</button>
 </nav>
 </div>
@@ -1101,23 +1101,6 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
   the telephone; the sources are one tap away in column B if they want to check anything; and the
   working machinery sits in column C where a customer has no reason to wander. The demonstration
   and the tool are the same object.</p>
-
-  <h2>Failures recorded in building this</h2>
-  <p>Per the rule in column A, and these are real:</p>
-  <ul>
-    <li><b>It was built as a form first.</b> Recorded above. The mistake was building the thing
-    that collects the answer instead of the thing that earns it.</li>
-    <li><b>The print layout printed the same heading twice</b> and drew a solid black block where
-    ruled lines were meant to be &mdash; the lines were faked with a box-shadow instead of being
-    real elements. Fixed by making them real.</li>
-    <li><b>Footnote markers were put inside the example cards</b>, where the card is itself a link.
-    Tapping the numeral followed the link instead of opening the source, because a control inside a
-    control belongs to the outer one. Caught by testing the tap rather than by looking at it. The
-    markers now sit in the sentence above the cards.</li>
-    <li><b>The first icon had the name cropped off</b> under Android&rsquo;s circular mask, because
-    the artwork used the whole square instead of the safe centre. Caught by rendering the mask and
-    looking, not by reading the specification.</li>
-  </ul>
 </section>
 
 </main>
@@ -1218,7 +1201,8 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
     });
   });
 
-  document.getElementById('pdf').addEventListener('click', function(){ window.print(); });
+  function gyroPdf(n){var a=document.createElement('a');a.href=n;a.download=n;document.body.appendChild(a);a.click();a.remove();}
+  document.getElementById('pdf').addEventListener('click', function(){ gyroPdf('Anna.pdf'); });
   // print: open every folded answer first, and fold them again after, so paper misses nothing
   var unfolded = [];
   window.addEventListener('beforeprint', function(){
@@ -1378,6 +1362,11 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
 (function(){
   function open(){
     var h = location.hash.slice(1); if(!h) return;
+    /* #intro, #info or #intro+info (as sent by gyro-sites.online/sites/) tick those boxes */
+    var w = h.split('+');
+    if (w.every(function(x){return x==='intro'||x==='info';})){
+      w.forEach(function(x){ document.getElementById('g-'+x).checked = true; }); return;
+    }
     var t = document.getElementById(h); if(!t) return;
     var parts = [['gyro-intro','g-intro'],['gyro-info','g-info']];
     for (var i=0;i<parts.length;i++){
