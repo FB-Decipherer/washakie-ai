@@ -613,6 +613,9 @@ body:has(#ck-c:not(:checked)) #cC .colhead b{margin-right:0;}
 .gyro-thumb:focus-visible,.gyro-thumb:hover{outline:2px solid #000;outline-offset:3px;}
 /* the same picture heads Intro, so with Intro on the index drops its copy */
 #g-intro:checked ~ .gyro-index .gyro-thumb{display:none;}
+/* and its title too: Intro opens with the same title */
+#g-intro:checked ~ .gyro-index .gyro-title{display:none;}
+#g-intro:checked ~ .gyro-index .gyro-boxes{margin-top:0;}
 @media (max-width:640px){.gyro-thumb{width:100%;max-width:340px;}}
 @media print{.gyro-thumb{display:none;}}
 .gyro-title{margin:0;font-size:clamp(26px,3.6vw,38px);font-weight:600;line-height:1.15;color:#000;}
