@@ -1382,5 +1382,7 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
   document.addEventListener('DOMContentLoaded', open);
 })();
 </script>
+<script>/* Keep the reader's Intro/Info choice for this visit, so following a link out and coming back does not reset the boxes. A fresh visit still starts with Intro on, Info off. */
+(function(){try{var k='gyro-boxes:'+location.pathname,i=document.getElementById('g-intro'),f=document.getElementById('g-info');if(!i||!f)return;var v=sessionStorage.getItem(k);if(v&&!location.hash){var o=JSON.parse(v);i.checked=!!o[0];f.checked=!!o[1];}var s=function(){try{sessionStorage.setItem(k,JSON.stringify([i.checked,f.checked]));}catch(e){}};i.addEventListener('change',s);f.addEventListener('change',s);window.addEventListener('pagehide',s);}catch(e){}})();</script>
 </body>
 </html>

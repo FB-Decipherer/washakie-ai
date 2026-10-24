@@ -1073,7 +1073,7 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
     <p><b>The trainees.</b> A few local people, trained in the workshops, who can make a change on somebody else&rsquo;s site. That is what the four workshops are for, and it is the part of the pilot program that decides whether any of it survives the year.</p>
     <p><b>The ambassadors, if they are willing: the Future Farmers of America.</b> The county has two chapters &mdash; Chief Washakie FFA, at Worland High School, and Ten Sleep FFA, both rated Gold in 2026<span class="fn" data-ref="r14">14</span>. They are already in the farms and ranches this format is built to serve, they are already organized, with advisors and a calendar, and their members would be publishing work that anyone outside the building can see. A page kept by a student for a neighbor&rsquo;s operation is this whole pilot program in one sentence.</p>
     <p><b>Nobody has asked them.</b> Not a phone call, not an email, not once. It is written down here before it is acted on, so that it can be checked later against what actually happened. If the chapters are not interested, the trainees are still the answer, and nothing in the pilot program depends on the FFA saying yes.</p>
-    <p><b>What an ambassador would actually do</b> is set out in two short guides, both in column B under Internal links: <a href="Ambassador-Guide-Change-a-Phone-Number.pdf">changing a phone number on a farm site, step by step</a>, and <a href="Ambassador-Who-Needs-What.pdf">what the ambassador, the adult site keeper and the owner each need</a>. Claude accounts are for ages 18 and up, so a student ambassador demonstrates and listens, and an adult does the typing.</p>
+    <p><b>What an ambassador would actually do</b> is set out in two short guides, both in column B under Internal links: <a href="Ambassador-Guide-Change-a-Phone-Number.pdf" target="_blank" rel="noopener">changing a phone number on a farm site, step by step</a>, and <a href="Ambassador-Who-Needs-What.pdf" target="_blank" rel="noopener">what the ambassador, the adult site keeper and the owner each need</a>. Claude accounts are for ages 18 and up, so a student ambassador demonstrates and listens, and an adult does the typing.</p>
   </div></details>
 
   <details id="elsewhere"><summary>Is the Business Council the only place to ask?</summary><div class="body">
@@ -1111,12 +1111,12 @@ footer a.autogyro:hover,footer a.autogyro:focus-visible{border-bottom-width:2px;
   <p class="colbcap" style="margin-top:2px">An article, a photograph, a map, a book, a dataset and a film, each carded: <a href="https://gyro-sites.online/source-cards.html">see every kind at work &rarr;</a></p>
   <h3 class="colbsh" id="colbint">Internal links</h3>
   <p class="colbcap">The most recent content changes, and the record behind them.</p>
-  <a class="bcard" href="Ambassador-Guide-Change-a-Phone-Number.pdf" style="overflow:hidden">
+  <a class="bcard" href="Ambassador-Guide-Change-a-Phone-Number.pdf" target="_blank" rel="noopener" style="overflow:hidden">
     <img src="shots/guide-phone.jpg" width="72" height="93" alt="" style="float:right;margin:0 0 6px 12px;border:1px solid var(--rule,#ccc)">
     <span class="t">23 October 2026 &mdash; Ambassador guide: changing a phone number on a farm site</span>
     <span class="d">PDF &middot; 2 pages &middot; 0.4 MB. Nine steps on East Bench Pivot Farm, from the farm page through the orange Auto-Gyro page to a published change, with who does each step and what to do if something looks wrong.</span>
   </a>
-  <a class="bcard" href="Ambassador-Who-Needs-What.pdf" style="overflow:hidden">
+  <a class="bcard" href="Ambassador-Who-Needs-What.pdf" target="_blank" rel="noopener" style="overflow:hidden">
     <img src="shots/guide-roles.jpg" width="72" height="93" alt="" style="float:right;margin:0 0 6px 12px;border:1px solid var(--rule,#ccc)">
     <span class="t">23 October 2026 &mdash; who needs what: ambassador, site keeper, owner</span>
     <span class="d">PDF &middot; 1 page &middot; 0.2 MB. Permissions, equipment and accounts for each role, and why the age rule puts an adult at the keyboard.</span>
@@ -1593,5 +1593,7 @@ Contingency                  $240
   document.addEventListener('DOMContentLoaded', open);
 })();
 </script>
+<script>/* Keep the reader's Intro/Info choice for this visit, so following a link out and coming back does not reset the boxes. A fresh visit still starts with Intro on, Info off. */
+(function(){try{var k='gyro-boxes:'+location.pathname,i=document.getElementById('g-intro'),f=document.getElementById('g-info');if(!i||!f)return;var v=sessionStorage.getItem(k);if(v&&!location.hash){var o=JSON.parse(v);i.checked=!!o[0];f.checked=!!o[1];}var s=function(){try{sessionStorage.setItem(k,JSON.stringify([i.checked,f.checked]));}catch(e){}};i.addEventListener('change',s);f.addEventListener('change',s);window.addEventListener('pagehide',s);}catch(e){}})();</script>
 </body>
 </html>
