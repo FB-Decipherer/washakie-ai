@@ -32,8 +32,10 @@
   try { data = JSON.parse(src.textContent || '{}'); } catch (e) { return; }
 
   var css =
-    '.wk{border-bottom:1px solid var(--rule,#DCD5C6);cursor:pointer}' +
-    '.wk:hover{border-bottom-color:var(--accentb,#B4372C)}' +
+    /* A Wikipedia preview is marked with a faint DOTTED underline, so it never looks like an
+       ordinary link (solid underline) to some other site. */
+    '.wk,a.wk{text-decoration:none!important;border-bottom:1.5px dotted rgba(110,104,94,.55)!important;cursor:pointer}' +
+    '.wk:hover,a.wk:hover{border-bottom-color:var(--accentb,#B4372C)!important}' +
     '.wk:focus-visible{outline:2px solid var(--gold,#C8992F);outline-offset:2px}' +
     '.wk-pop{position:absolute;z-index:60;max-width:22rem;min-width:15rem;' +
       'background:var(--card,#F5F1E8);color:var(--ink,#1E1B16);' +
@@ -111,7 +113,17 @@
     t.setAttribute('role', 'button');
     t.setAttribute('aria-label', 'Wikipedia preview: ' + t.textContent.trim());
 
-    t.addEventListener('click', function (e) { e.stopPropagation(); (host === t) ? close() : open(t); });
+    t.addEventListener('click', function (e) {
+      e.stopPropagation();
+      // A marked LINK still goes where it points. On a touch screen, where there is no hover,
+      // the first tap shows the preview and the second follows the link.
+      if (t.tagName === 'A') {
+        var touch = !(window.matchMedia && window.matchMedia('(hover: hover)').matches);
+        if (touch && host !== t) { e.preventDefault(); open(t); }
+        return;
+      }
+      (host === t) ? close() : open(t);
+    });
     t.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); open(t); }
       if (e.key === 'Escape') { close(); t.focus(); }
