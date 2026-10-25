@@ -116,13 +116,13 @@ var alts=["GYR-O Pages: grass-roots AI for Washakie County.",
 "On June 3, Governor Gordon ordered state agencies to promote data centers, the facilities AI runs inside.",
 "Washakie County will host no data center and no AI researchers. So how does AI reach the grass roots?",
 "The University's AI Initiative promises to equip every student and community.",
-"Why GYR-O Pages fits the University's AI Initiative: empowering citizens and communities, seeding entrepreneurship, agriculture, equipping every student and community, and all of Wyoming.",
+"Why GYR-O Pages fits the University's AI Initiative: empowering citizens and communities, seeding entrepreneurship, agriculture, tourism, participating in the global AI transformation, equipping every student and community, and all of Wyoming.",
 "Our proposal, GYR-O Pages: a farm or shop says in one sentence what it does, and picks a name.",
 "From one sentence, AI picks the nine questions customers ask and answers them: expert-level research without hiring an expert, with sources.",
 "Nine sites running today. A 12-month county pilot, for about $10,000.",
 "Who at the University should review it? washakie-ai.online"];
 var N=alts.length+1, LAST=N-1;
-var dur=[3,3.5,3,3,4.5,3,4.5,3,2.5],starts=[],t0=0;dur.forEach(function(d){starts.push(t0);t0+=d});
+var dur=[3,3.5,3,2.5,5.5,3,4.5,2.5,2.5],starts=[],t0=0;dur.forEach(function(d){starts.push(t0);t0+=d});
 var timer=null,startAt=0,clock=document.getElementById('clock'),playBtn=document.getElementById('play');
 var stage=document.getElementById('stage'),details=document.getElementById('details'),dots=document.getElementById('dots'),imgs=[],dbs=[],i=0;
 function fmt(s){s=Math.min(30,Math.floor(s));return '0:'+(s<10?'0':'')+s}
