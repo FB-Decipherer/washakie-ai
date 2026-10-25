@@ -29,12 +29,19 @@ ul.fit{margin:0 0 26px;padding:0;list-style:none;border-top:1px solid var(--rule
 ul.fit li{padding:11px 0;border-bottom:1px solid #d6cfbf;display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:4px 18px}
 ul.fit b{color:var(--sage);font-weight:600}
 @media (max-width:640px){ul.fit li{grid-template-columns:1fr}}
+.eo{border-left:6px solid #7a1f2b;background:#fff;padding:14px 20px;margin:0 0 22px}
+.eo p{margin:0 0 10px}
+.eo .lbl{font:500 12px/1.4 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#7a1f2b}
+.eo .turn{font-size:20px}
+.eo .src{font-size:15px;color:var(--mid);margin:0}
+.eo a{color:var(--rust);text-underline-offset:2px}
 .ask{border:3px double #7a1f2b;color:#7a1f2b;background:#fff;padding:14px 18px;margin:0 0 22px;font-size:22px;font-weight:600;line-height:1.3}
 .see{border-left:4px solid var(--rust);padding:4px 0 4px 14px;margin:0 0 26px}
 .foot{font-size:15px;color:var(--mid);border-top:3px double var(--rule);padding-top:12px;line-height:1.6}
 .pdf-dl{margin:0 0 14px;text-align:right;font:15px/1.4 "IBM Plex Mono",ui-monospace,monospace}
 .pdf-dl a{color:inherit;text-underline-offset:2px}
-@media print{body{background:#fff;font-size:11pt;padding:0}h1{font-size:24pt;margin-bottom:12px}.mission{padding:12px 16px;margin-bottom:16px}.mission blockquote{font-size:11pt}ul.fit{margin-bottom:14px}ul.fit li{padding:6px 0}.see{margin-bottom:8px;font-size:10.5pt}.mission .src{font-size:10pt}.ask{font-size:13pt;padding:8px 12px;margin-bottom:10px}.foot{padding-top:6px}.pdf-dl{display:none}.mission{break-inside:avoid}ul.fit li{break-inside:avoid}}
+@media print{body{background:#fff;font-size:11pt;padding:0}h1{font-size:24pt;margin-bottom:12px}.mission{padding:12px 16px;margin-bottom:16px}.mission blockquote{font-size:11pt}ul.fit{margin-bottom:14px}ul.fit li{padding:6px 0}.see{margin-bottom:8px;font-size:10.5pt}.mission .src{font-size:10pt}.ask{font-size:13pt;padding:8px 12px;margin-bottom:10px}.foot{padding-top:6px}.pdf-dl{display:none!important}.eo{padding:8px 12px;margin-bottom:12px;break-inside:avoid}.eo p{margin:0 0 5px}.eo .src{font-size:9pt}.mission{break-inside:avoid}ul.fit li{break-inside:avoid}}
+@media print{@page{margin:0.4in 0.55in}body{font-size:10pt;line-height:1.38}h1{font-size:20pt;margin-bottom:8px}.eyebrow{margin-bottom:4px}.mission{padding:8px 12px;margin-bottom:10px}.mission blockquote{font-size:10pt;line-height:1.4}.mission .lbl{margin-bottom:5px}h2{font-size:14pt;margin-bottom:4px}ul.fit li{padding:3px 0}ul.fit{margin-bottom:10px}.eo .turn{font-size:10.5pt}.ask{font-size:12pt;padding:6px 10px}.foot{font-size:9pt}}
 </style>
 </head>
 <body>
@@ -42,6 +49,13 @@ ul.fit b{color:var(--sage);font-weight:600}
 <p class="pdf-dl" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><a href="./">&larr; washakie-ai.online home</a><a href="GYR-O-Pages-and-the-UW-AI-Initiative.pdf" download>Download this page as a PDF</a></p>
 <p class="eyebrow">GYR-O Pages · Worland, Washakie County</p>
 <h1>GYR-O Pages and the UW AI Initiative</h1>
+
+<div class="eo">
+<p class="lbl">Where this starts: the Governor&rsquo;s Executive Order</p>
+<p>On June 3, 2026, Governor Mark Gordon signed <b>Executive Order 2026-03</b>, directing state agencies to promote responsible development of data centers, the facilities AI runs inside. It calls for workforce training with the University of Wyoming and for real benefits to the communities that host them.</p>
+<p class="turn">Washakie County will host no data center and no AI researchers. GYR-O Pages answers the other half of the question: <b>how does AI reach the grass roots?</b></p>
+<p class="src">Source: <a href="https://cowboystatedaily.com/2026/06/03/gordon-orders-responsible-data-center-development-in-wyoming/">Cowboy State Daily, June 3, 2026</a></p>
+</div>
 
 <div class="mission">
 <p class="lbl">One of the UW President’s Initiatives: the AI Initiative, in its own words</p>
@@ -57,11 +71,11 @@ ul.fit b{color:var(--sage);font-weight:600}
 <li><b>“Agriculture”</b><span>Farm sites, shared under a farm cooperative’s name.</span></li>
 <li><b>“Equip every student and community”</b><span>Public workshops, with high school ambassadors doing the demonstrations.</span></li>
 <li><b>“All of Wyoming”</b><span>Built for a county of 7,600, far from Laramie and Cheyenne.</span></li>
-<li><b>Ready now</b><span>Three sites live. A 12-month Washakie County pilot for about $10,000.</span></li>
+<li><b>Ready now</b><span>Nine sites running. A 12-month Washakie County pilot for about $10,000.</span></li>
 </ul>
 
 <p class="ask">The question I’m asking: who at the University should I speak to, to have this reviewed?</p>
-<p class="see">See it working: the top of the <a href="./">washakie-ai.online home page</a> takes about a minute to read.</p>
+<p class="see">See it working: the top of the <a href="./">washakie-ai.online home page</a> takes about a minute to read. Or step through it in 30 seconds: <a href="30-seconds/">washakie-ai.online/30-seconds</a>.</p>
 
 <p class="foot">Walter Wilkinson · retired technology engineer · Worland, Wyoming · (307) 463-1618 · wilkinson.walter@gmail.com<br>
 The quotation above is the University of Wyoming’s; the summary below it is the author’s, from AI.</p>
