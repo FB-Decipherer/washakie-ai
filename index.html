@@ -1620,7 +1620,9 @@ Contingency                  $240
       var box = document.querySelector('.'+parts[i][0]);
       if (box && box.contains(t)) document.getElementById(parts[i][1]).checked = true;
     }
-    if (t.tagName === 'DETAILS') t.open = true;  /* a link to an answer opens it */
+    /* on a phone only one column shows: bring the target's column forward */
+    var col = t.closest && t.closest('section.col');
+    if (col && !col.classList.contains('active')) { var tb = document.getElementById(col.getAttribute('aria-labelledby')); if (tb) tb.click(); }
     if (t.scrollIntoView) t.scrollIntoView();
   }
   window.addEventListener('hashchange', open);
