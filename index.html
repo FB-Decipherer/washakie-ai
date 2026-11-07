@@ -1629,8 +1629,8 @@ Contingency                  $240
   document.addEventListener('DOMContentLoaded', open);
 })();
 </script>
-<script>/* Keep the reader's Intro/Info choice for this visit, so following a link out and coming back does not reset the boxes. A fresh visit still starts with Intro on, Info off. */
-(function(){try{var k='gyro-boxes:'+location.pathname,i=document.getElementById('g-intro'),f=document.getElementById('g-info');if(!i||!f)return;var v=sessionStorage.getItem(k);if(v&&!location.hash){var o=JSON.parse(v);i.checked=!!o[0];f.checked=!!o[1];}var s=function(){try{sessionStorage.setItem(k,JSON.stringify([i.checked,f.checked]));}catch(e){}};i.addEventListener('change',s);f.addEventListener('change',s);window.addEventListener('pagehide',s);}catch(e){}})();</script>
+<script>/* Remember the reader's Intro/Info choice on this device, so a returning visitor who has switched Intro off is not handed it again. A first visit starts with Intro on, Info off, and a link ending #intro, #info or #intro+info still wins. (7 Nov 2026; was per-visit sessionStorage.) */
+(function(){try{var k='gyro-boxes:'+location.pathname,i=document.getElementById('g-intro'),f=document.getElementById('g-info');if(!i||!f)return;var v=localStorage.getItem(k);if(v&&!location.hash){var o=JSON.parse(v);i.checked=!!o[0];f.checked=!!o[1];}var s=function(){try{localStorage.setItem(k,JSON.stringify([i.checked,f.checked]));}catch(e){}};i.addEventListener('change',s);f.addEventListener('change',s);window.addEventListener('pagehide',s);}catch(e){}})();</script>
 <script type="application/json" id="wk-data">{
  "Anthropic": {
   "description": "American artificial intelligence company",
