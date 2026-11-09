@@ -34,7 +34,7 @@
   var css =
     /* A Wikipedia preview is marked with a faint DOTTED underline, so it never looks like an
        ordinary link (solid underline) to some other site. */
-    '.wk,a.wk{text-decoration:none!important;border-bottom:1.5px dotted rgba(110,104,94,.55)!important;cursor:pointer}' +
+    '.wk,a.wk{text-decoration:none!important;border-bottom:1px dotted rgba(110,104,94,.5)!important;cursor:pointer}' +
     '.wk:hover,a.wk:hover{border-bottom-color:var(--accentb,#B4372C)!important}' +
     '.wk:focus-visible{outline:2px solid var(--gold,#C8992F);outline-offset:2px}' +
     '.wk-pop{position:absolute;z-index:60;max-width:22rem;min-width:15rem;' +

@@ -69,6 +69,10 @@ button.rst{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:non
   cursor:pointer;margin-top:20px;}
 footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--rule);
   font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-mid);}
+
+/* Wikipedia links: a light dotted underline, so they read as Wikipedia at a glance. Source-card buttons (.rlink) keep their box. 7 Nov 2026. */
+a[href*="wikipedia.org"]:not(.rlink){text-decoration:none;border-bottom:1px dotted rgba(110,104,94,.5);}
+a[href*="wikipedia.org"]:not(.rlink):hover{border-bottom-color:var(--accentb,#B4372C);}
 </style>
 </head>
 <body>

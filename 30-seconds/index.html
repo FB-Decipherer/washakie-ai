@@ -44,6 +44,10 @@ button:focus-visible{outline:3px solid var(--maroon);outline-offset:2px}
 .dots button[aria-current="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
 .note{font-size:15px;color:var(--mid);margin:0}
 .note b{color:var(--ink);font-weight:700}
+
+/* Wikipedia links: a light dotted underline, so they read as Wikipedia at a glance. Source-card buttons (.rlink) keep their box. 7 Nov 2026. */
+a[href*="wikipedia.org"]:not(.rlink){text-decoration:none;border-bottom:1px dotted rgba(110,104,94,.5);}
+a[href*="wikipedia.org"]:not(.rlink):hover{border-bottom-color:var(--accentb,#B4372C);}
 </style>
 <style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>

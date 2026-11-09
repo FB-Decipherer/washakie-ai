@@ -39,6 +39,10 @@
    threshold go on working here -- they are CSS, not script. */
 .col{opacity:1!important}
 @media (max-width:1100px){.col{display:block!important}}
+
+/* Wikipedia links: a light dotted underline, so they read as Wikipedia at a glance. Source-card buttons (.rlink) keep their box. 7 Nov 2026. */
+a[href*="wikipedia.org"]:not(.rlink){text-decoration:none;border-bottom:1px dotted rgba(110,104,94,.5);}
+a[href*="wikipedia.org"]:not(.rlink):hover{border-bottom-color:var(--accentb,#B4372C);}
 </style></noscript>
 <style>
 :root{
@@ -241,7 +245,7 @@ a.masthead-img img{width:100%; height:auto; display:block}
 a.masthead-img:hover{outline:2px solid var(--accent); outline-offset:3px}
 a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 @media (max-width:640px){.masthead-fig{width:100%; margin-top:.4rem}}
-@media print{.masthead-fig{display:none !important} header{display:block}}
+@media print{/* rule: the signature graphic is visible in every state, print included */ .masthead-fig{display:block !important;width:2.6in;margin:0 auto 12pt;break-inside:avoid} .masthead-fig figcaption{font-size:10pt} header{display:block}}
 
 /* ---- a drawing inside a column: a <figure> with its caption at 22 px, like every caption in the
         format. Its colors are the page's own, so it follows dark mode and prints in black. ---- */
